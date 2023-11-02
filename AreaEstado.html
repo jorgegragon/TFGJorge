@@ -88,6 +88,9 @@
         // Pantalla
         var wall1;
         var sphere;
+        var box;
+        var box1;
+        var box2;
 
         // Selección
         const raycaster = new THREE.Raycaster();
@@ -145,17 +148,18 @@
             scene.add(side3);
 
             //
-            var box = getBox();
+            box = getBox();
             box.position.set (0, 2, -15);
             box.rotateX (Math.PI / 2);
             box.name = "proxy";
+            var colorOriginal = box.material.color.getHex();
 
-            var box1 = getBox();
+            box1 = getBox();
             box1.position.set (-15, 2, 15);
             box1.rotateX (Math.PI / 2);
             box1.name = "UA1";
 
-            var box2 = getBox();
+            box2 = getBox();
             box2.position.set (15, 2, 15);
             box2.rotateX (Math.PI / 2);
             box2.name = "UA2";
@@ -272,7 +276,7 @@
                 keyStates[ event.code ] = false;
 
             } );
-/*
+
             document.addEventListener( 'mouseup', () => {
 
                 document.exitPointerLock();
@@ -408,7 +412,7 @@
                 }
 
             } );
-*/
+
             // ANIMACIÓN
             animate(sphere, renderer, scene, camera);
 
@@ -726,7 +730,9 @@
                     estado = "Register UA1"; 
                     document.getElementById("marcadores").innerHTML = resultado;
                 }
-               
+                box.material.color.set(0xffffff);
+                box1.material.color.set(0xffffff);
+                box2.material.color.set(0xffffff);
             }
 
             if ( keyStates[ 'KeyQ' ] ) {
