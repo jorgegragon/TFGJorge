@@ -52,38 +52,38 @@
         var contador = 0;
 
         // Imagenes
-        const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
-        const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
-        const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
+        const texture = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/textures/crate.gif' );
+        const suelo = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/textures/sueloblanco.jpg' );
+        const muro = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/textures/extura.jpg' );
 
-        const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.png' );
-        const att_ua1= new THREE.TextureLoader().load( '../Imagenes/parametros/attua1.png' );
-        const att_ua2 = new THREE.TextureLoader().load( '../Imagenes/parametros/attua2.png' );
-        const att_proxy = new THREE.TextureLoader().load( '../Imagenes/parametros/attproxy.png' );
-        const att_ua1_inf = new THREE.TextureLoader().load( '../Imagenes/parametros/att_ua1inf.png' );
-        const att_ua2_inf = new THREE.TextureLoader().load( '../Imagenes/parametros/att_ua2inf.png' );
-        const att_proxy_inf = new THREE.TextureLoader().load( '../Imagenes/parametros/att_proxyinf.png' );
+        const pared = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/parametros/secuencia.png' );
+        const att_ua1= new THREE.TextureLoader().load( '../PruebaVR/Imagenes/parametros/attua1.png' );
+        const att_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/parametros/attua2.png' );
+        const att_proxy = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/parametros/attproxy.png' );
+        const att_ua1_inf = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/parametros/att_ua1inf.png' );
+        const att_ua2_inf = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/parametros/att_ua2inf.png' );
+        const att_proxy_inf = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/parametros/att_proxyinf.png' );
 
-        const register_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/Register1.png' );
-        const register_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/Register2.png' );
-        const unauthorized = new THREE.TextureLoader().load( '../Imagenes/paquetes/401unauthorized.png' );
-        const ok_proxy_reg_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okproxyua1.png' );
-        const ok_proxy_reg_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okproxyua2.png' );
-        const invite_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/invite+sdpua1.png' );
-        const invite_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/invite+sdpua2.png' );
-        const trying_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/tryingua1.png' );
-        const trying_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/tryingua2.png' );
-        const ringing_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ringingua1.png' );
-        const ringing_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ringingua2.png' );
-        const ok_status_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okua1.png' );
-        const ok_status_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okua2.png' );
-        const ack_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ackua1.png' );
-        const ack_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ackua2.png' );
-        const rtp = new THREE.TextureLoader().load( '../Imagenes/paquetes/rtp.png' );
-        const bye_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/byeua1.png' );
-        const bye_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/byeua2.png' );
-        const ok_bye_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okbyeua1.png' );
-        const ok_bye_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okbyeua2.png' );
+        const register_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/Register1.png' );
+        const register_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/Register2.png' );
+        const unauthorized = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/401unauthorized.png' );
+        const ok_proxy_reg_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/200okproxyua1.png' );
+        const ok_proxy_reg_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/200okproxyua2.png' );
+        const invite_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/invite+sdpua1.png' );
+        const invite_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/invite+sdpua2.png' );
+        const trying_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/tryingua1.png' );
+        const trying_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/tryingua2.png' );
+        const ringing_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/ringingua1.png' );
+        const ringing_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/ringingua2.png' );
+        const ok_status_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/200okua1.png' );
+        const ok_status_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/200okua2.png' );
+        const ack_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/ackua1.png' );
+        const ack_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/ackua2.png' );
+        const rtp = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/rtp.png' );
+        const bye_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/byeua1.png' );
+        const bye_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/byeua2.png' );
+        const ok_bye_ua1 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/200okbyeua1.png' );
+        const ok_bye_ua2 = new THREE.TextureLoader().load( '../PruebaVR/Imagenes/paquetes/200okbyeua2.png' );
 
     
         // Pantalla
