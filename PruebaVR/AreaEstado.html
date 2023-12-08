@@ -202,8 +202,7 @@
             // CONTROLES MANDO
             controller1.addEventListener('selectstart', ( event ) => {
 
-                playerVelocity.y = 5;
-                console.log ("Entramos Mando");
+                keyStates['selectstart'] = true;
 
             } );
 
@@ -337,6 +336,13 @@
                 if (camera.position.y > 3){
                     playerVelocity.y = -5;
                 }
+
+            }
+
+            if ( keyStates[ 'selectstart' ] ) {
+ 
+                playerVelocity.y = -5;
+                console.log ("Entramos Mando");
 
             }
 
