@@ -199,6 +199,9 @@
             window.addEventListener( 'pointermove', onPointerMove );
             window.addEventListener( 'resize', onWindowResize );
 
+            // CONTROLES MANDO
+            controller1.addEventListener('selectstart', onSelectStart);
+
             // CONTROLES CAMARA
             document.addEventListener( 'keydown', ( event ) => {
 
@@ -251,6 +254,12 @@
                 animate(sphere, renderer, scene, camera);
 
             } );
+        }
+
+        function onSelectStart(event) {
+            const deltaTime = Math.min( 0.05, clock.getDelta() ) * 4;
+            const speedDelta = deltaTime * 25;
+            playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
         }
 
         function getFloor() {
