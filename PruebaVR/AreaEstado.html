@@ -257,6 +257,7 @@
 
             renderer.setAnimationLoop( function () {
 
+                renderer.xr.updateCamera( camera );
                 renderer.render( scene, camera );
                 animate(sphere, renderer, scene, camera);
 
