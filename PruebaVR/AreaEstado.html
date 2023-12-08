@@ -200,11 +200,13 @@
             window.addEventListener( 'resize', onWindowResize );
 
             // CONTROLES MANDO
-            controller1.addEventListener('selectstart', ( event ) => {
-
+            controller1.addEventListener('selectstart', (event) => {
                 keyStates['selectstart'] = true;
+            });
 
-            } );
+            controller1.addEventListener('selectend', (event) => {
+                keyStates['selectstart'] = false;
+            });
 
             // CONTROLES CAMARA
             document.addEventListener( 'keydown', ( event ) => {
@@ -341,7 +343,7 @@
 
             if ( keyStates[ 'selectstart' ] ) {
  
-                playerVelocity.y = -5;
+                playerVelocity.y = 1;
                 console.log ("Entramos Mando");
 
             }
