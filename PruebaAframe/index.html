@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto de Realidad Virtual con Oculus Quest 2</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-oculus-touch-controls/dist/aframe-oculus-touch-controls.js"></script>
+</head>
+<body>
+  <a-scene>
+    <a-box position="0 1 0" color="#4CC3D9"></a-box>
+    <a-sky color="#ECECEC"></a-sky>
+    
+    <a-entity id="player" oculus-touch-controls="hand: right" move-in-vr></a-entity>
+  </a-scene>
+
+  <script>
+    AFRAME.registerComponent('move-in-vr', {
+      init: function () {
+        this.speed = 0.1;
+        this.el.addEventListener('thumbstickmoved', this.handleThumbstickMove.bind(this));
+      },
+      handleThumbstickMove: function (event) {
+        const axis = event.detail.axis;
+        
+        // Mover hacia adelante si el eje vertical del pulgar está por debajo de -0.5
+        if (axis[1] < -0.5) {
+          const position = this.el.getAttribute('position');
+          position.z -= this.speed;
+          this.el.setAttribute('position', position);
+        }
+
+        if (axis[1] > -0.5) {
+          const position = this.el.getAttribute('position');
+          position.z += this.speed;
+          this.el.setAttribute('position', position);
+        }
+      },
+    });
+  </script>
+</body>
+</html>
+
