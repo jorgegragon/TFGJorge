@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto de Realidad Virtual con Oculus Quest 2</title>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://raw.githubusercontent.com/aframevr/aframe-oculus-touch-controls/master/dist/aframe-oculus-touch-controls.js"></script>
   <script src="https://unpkg.com/aframe-teleport-controls/dist/aframe-teleport-controls.min.js"></script>
 </head>
 <body>
   <a-scene>
-    <a-box position="0 1 0" color="#934cd9"></a-box>
+    <a-box position="0 1 0" color="#d99e4c"></a-box>
     <a-sky color="#ECECEC"></a-sky>
     
-    <a-entity id="player" oculus-touch-controls="hand: right" teleport-controls="0 1.6 0"></a-entity>
+    <!-- Cargar aframe-oculus-touch-controls después de A-Frame -->
+    <script src="https://unpkg.com/aframe-oculus-touch-controls/dist/aframe-oculus-touch-controls.js"></script>
+
+    <a-entity id="player" oculus-touch-controls="hand: right" teleport-controls position="0 1.6 0"></a-entity>
   </a-scene>
 </body>
 </html>
