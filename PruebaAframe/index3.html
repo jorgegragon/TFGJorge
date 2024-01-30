@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VR con Movimiento usando A-Frame</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene vr-mode-ui="enabled: false">
+    <a-box position="0 1.6 -3" color="#4CC3D9"></a-box>
+    <a-sky color="#ECECEC"></a-sky>
+    <a-entity id="player" wasd-controls>
+      <a-camera position="0 1.6 0"></a-camera>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
