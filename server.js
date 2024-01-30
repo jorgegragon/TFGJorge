@@ -4,14 +4,14 @@ const app = express();
 const port = 3000;
 
 // Define la ruta al directorio que contiene los archivos estáticos
-const staticPath = path.join(__dirname, './PruebaVR');
+const staticPath = path.join(__dirname, './PruebaAframe');
 
 // Utiliza express.static() para servir archivos estáticos desde el directorio
 app.use(express.static(staticPath));
 
 // Configura una ruta para el archivo HTML principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(staticPath, 'AreaEstado.html'));
+  res.sendFile(path.join(staticPath, 'index3.html'));
 });
 
 // Inicia el servidor en el puerto especificado
