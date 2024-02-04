@@ -200,10 +200,19 @@
             window.addEventListener( 'resize', onWindowResize );
 
             // CONTROLES MANDO
+            // controller1.addEventListener('selectstart', (event) => {
+            //     camera.position.y += 1
+            //     keyStates['selectstart'] = true;
+            //     console.log("New Camera Position: ", camera.position);
+            // });
+
             controller1.addEventListener('selectstart', (event) => {
-                camera.position.y += 1
-                keyStates['selectstart'] = true;
-                console.log("New Camera Position: ", camera.position);
+                if (renderer.xr.isPresenting) {
+                    camera.position.y += 1;
+                    console.log("Entramos Mando. Nueva posición Y: " + camera.position.y);
+                } else {
+                    console.log("La aplicación no está en modo VR.");
+                }
             });
 
             controller1.addEventListener('selectend', (event) => {
