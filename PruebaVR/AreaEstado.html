@@ -266,13 +266,14 @@
             controls( deltaTime );
             updatePlayer( deltaTime );
 
-            renderer.setAnimationLoop( function () {
+            // Actualiza la cámara y renderiza la escena
+            renderer.xr.updateCamera(camera);
+            renderer.render(scene, camera);
 
-                renderer.xr.updateCamera( camera );
-                renderer.render( scene, camera );
+            // Continúa el bucle de animación
+            renderer.setAnimationLoop(() => {
                 animate(sphere, renderer, scene, camera);
-
-            } );
+            });
         }
 
         function getFloor() {
@@ -318,7 +319,7 @@
             
             if ( keyStates[ 'KeyW' ] ) {
 
-                    playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
+                playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
                 
             }
 
