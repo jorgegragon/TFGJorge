@@ -203,10 +203,12 @@
             controller1.addEventListener('selectstart', (event) => {
                 camera.position.y += 1
                 keyStates['selectstart'] = true;
+                console.log("Select Start");
             });
 
             controller1.addEventListener('selectend', (event) => {
                 keyStates['selectstart'] = false;
+                console.log("Select End");
             });
 
             // CONTROLES CAMARA
