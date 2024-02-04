@@ -209,6 +209,7 @@
             controller1.addEventListener('selectstart', (event) => {
                 if (renderer.xr.isPresenting) {
                     camera.position.y += 1;
+                    keyStates['selectstart'] = true;
                     console.log("Entramos Mando. Nueva posición Y: " + camera.position.y);
                 } else {
                     console.log("La aplicación no está en modo VR.");
@@ -251,7 +252,6 @@
 
             } );
             // ANIMACIÓN
-            console.log("Camara Posición Y: " + camera.position.y);
             animate(sphere, renderer, scene, camera);
 
         }
@@ -265,7 +265,7 @@
             const deltaTime = Math.min( 0.05, clock.getDelta() ) * 4;
             controls( deltaTime );
             updatePlayer( deltaTime );
-
+            console.log("Camara Posición Y: " + camera.position.y);
             // Actualiza la cámara y renderiza la escena
             renderer.xr.updateCamera(camera);
             renderer.render(scene, camera);
@@ -358,7 +358,6 @@
             if ( keyStates[ 'selectstart' ] ) {
  
                 camera.position.y += 1
-                console.log ("Entramos Mando" + camera.position.y);
 
             }
 
