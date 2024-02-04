@@ -265,10 +265,13 @@
             const deltaTime = Math.min( 0.05, clock.getDelta() ) * 4;
             controls( deltaTime );
             updatePlayer( deltaTime );
-            //console.log("Camara Posición Y: " + camera.position.y);
             // Actualiza la cámara y renderiza la escena
             renderer.xr.updateCamera(camera);
             renderer.render(scene, camera);
+
+            if (renderer.xr.isPresenting) {
+                player.position.copy(controller1.position);
+            }
 
             // Continúa el bucle de animación
             renderer.setAnimationLoop(() => {
