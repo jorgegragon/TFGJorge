@@ -269,12 +269,12 @@
             renderer.xr.updateCamera(camera);
             renderer.render(scene, camera);
 
-            if (renderer.xr.isPresenting) {
-                const player = new THREE.Object3D();
-                player.add(camera);
-                scene.add(player);
-                player.position.copy(controller1.position);
-            }
+            // if (renderer.xr.isPresenting) {
+            //     const player = new THREE.Object3D();
+            //     player.add(camera);
+            //     scene.add(player);
+            //     player.position.copy(controller1.position);
+            // }
 
             // Continúa el bucle de animación
             renderer.setAnimationLoop(() => {
