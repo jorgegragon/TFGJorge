@@ -146,8 +146,9 @@
             });
             renderer.setSize(sceneWidth, sceneHeight);
             renderer.xr.enabled = true;
+            renderer.xr.autoUpdate = false;
+
             document.body.appendChild(renderer.domElement);
-            
             document.body.appendChild( VRButton.createButton( renderer ) );
 
             // CONTROLADORES
@@ -264,7 +265,6 @@
             controls( deltaTime );
             updatePlayer( deltaTime );
             // Actualiza la cámara y renderiza la escena
-            cameraVR.copy(camera);
             renderer.xr.updateCamera(camera);
             renderer.render(scene, camera);
 
