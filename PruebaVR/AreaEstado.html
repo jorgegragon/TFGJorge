@@ -149,7 +149,9 @@
             renderer.xr.autoUpdate = false;
 
             document.body.appendChild(renderer.domElement);
-            document.body.appendChild( VRButton.createButton( renderer ) );
+
+            const vrButton = VRButton.createButton(renderer);
+            document.body.appendChild(vrButton);
 
             // CONTROLADORES
 
@@ -199,11 +201,6 @@
             window.addEventListener( 'resize', onWindowResize );
 
             // CONTROLES MANDO
-            // controller1.addEventListener('selectstart', (event) => {
-            //     camera.position.y += 1
-            //     keyStates['selectstart'] = true;
-            //     console.log("New Camera Position: ", camera.position);
-            // });
 
             controller1.addEventListener('selectstart', (event) => {
                 if (renderer.xr.isPresenting) {
