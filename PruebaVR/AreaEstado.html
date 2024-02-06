@@ -105,6 +105,7 @@
         let mouseTime = 0;
         const playerCollider = new Capsule( new THREE.Vector3( 0, 0.35, 0 ), new THREE.Vector3( 0, 30, 100), 0.35 );//( 0, 3, 30)        
         const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        const cameraVR = new THREE.VRPerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
     
 
         init();
@@ -266,7 +267,7 @@
             controls( deltaTime );
             updatePlayer( deltaTime );
             // Actualiza la cámara y renderiza la escena
-            renderer.xr.updateCamera(camera);
+            renderer.xr.updateCamera(cameraVR);
             renderer.render(scene, camera);
 
             // if (renderer.xr.isPresenting) {
