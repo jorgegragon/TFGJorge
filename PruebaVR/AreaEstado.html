@@ -275,6 +275,9 @@
             //     scene.add(player);
             //     player.position.copy(controller1.position);
             // }
+            setInterval(function() {
+                console.log("Posicion camara" + camera.position);
+            }, 1000);
 
             // Continúa el bucle de animación
             renderer.setAnimationLoop(() => {
