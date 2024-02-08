@@ -8,8 +8,17 @@
     </style>
 </head>
 <body>
-<script src="https://threejs.org/build/three.js"></script>
-<script src="https://threejs.org/examples/js/webxr/VRButton.js"></script>
+  <script type="importmap">
+    {
+        "imports": {
+            "three": "../PruebaVR/jsm/build/three.module.js"
+        }
+    }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { VRButton } from '../PruebaVR/jsm/webxr/VRButton.js';
+</script>
 
 <script>
     let camera, scene, renderer;
