@@ -78,7 +78,9 @@
         camera.getWorldDirection(direction);
         direction.multiplyScalar(distance);
         camera.position.add(direction);
-        console.log(camera.position.x + camera.position.y + camera.position.z);
+        console.log("X:" + camera.position.x);
+        console.log("Y:" + camera.position.y);
+        console.log("Z:" + camera.position.z);
     }
 
     function onWindowResize() {
