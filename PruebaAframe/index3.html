@@ -47,6 +47,11 @@
 
         document.body.appendChild(VRButton.createButton(renderer));
 
+        group = new THREE.Group();
+        scene.add(group);
+
+        group.add(camera);
+
         // Controllers
         controller1 = renderer.xr.getController(0);
         scene.add(controller1);
@@ -78,10 +83,10 @@
         // camera.getWorldDirection(direction);
         // direction.multiplyScalar(distance);
         // camera.position.add(direction);
-        camera.position.z += distance;
-        console.log("X:" + camera.position.x);
-        console.log("Y:" + camera.position.y);
-        console.log("Z:" + camera.position.z);
+        group.position.z += distance;
+        console.log("X:" + group.position.x);
+        console.log("Y:" + group.position.y);
+        console.log("Z:" + group.position.z);
     }
 
     function onWindowResize() {
