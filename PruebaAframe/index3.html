@@ -69,6 +69,7 @@
     }
 
     function onSelectStart() {
+        console.log("Pulso Boton");
         moveForward(0.1); // Movimiento
     }
 
@@ -77,6 +78,7 @@
         camera.getWorldDirection(direction);
         direction.multiplyScalar(distance);
         camera.position.add(direction);
+        console.log(camera.position.x + camera.position.y + camera.position.z);
     }
 
     function onWindowResize() {
