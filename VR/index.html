@@ -77,18 +77,18 @@
 
         // Pared
         wall1 = getWall(pared);
-        wall1.position.set( 0, 12.5, -45);
+        wall1.position.set( 0, 12.5, -4);
 
         var side1 = getSide();
-        side1.position.set (50, 12.5, 0);
+        side1.position.set (5, 12.5, 0);
         side1.rotateX (Math.PI / 2);
 
         var side2 = getSide();
-        side2.position.set (-50, 12.5, 0);
+        side2.position.set (-5, 12.5, 0);
         side2.rotateX (Math.PI / 2);
 
         var side3 = getSide();
-        side3.position.set (0, 12.5, -48.5);
+        side3.position.set (0, 12.5, -5);
         side3.rotateY (Math.PI / 2);
         side3.rotateX (Math.PI / 2);
         
@@ -182,7 +182,7 @@
     }
 
     function getBox() {
-        var geometry = new THREE.BoxGeometry(1, 1, 1);
+        var geometry = new THREE.BoxGeometry(3, 2, 4);
         var material = new THREE.MeshBasicMaterial( { map: texture } );
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.z = 2;
