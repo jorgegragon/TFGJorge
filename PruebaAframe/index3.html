@@ -80,11 +80,11 @@
     }
 
     function moveForward(distance) {
-        // const direction = new THREE.Vector3();
-        // camera.getWorldDirection(direction);
-        // direction.multiplyScalar(distance);
-        // camera.position.add(direction);
-        group.position.z += distance;
+        const direction = new THREE.Vector3();
+        camera.getWorldDirection(direction);
+        direction.multiplyScalar(distance);
+        camera.position.add(direction);
+        //group.position.z += distance;
         console.log("X:" + group.position.x);
         console.log("Y:" + group.position.y);
         console.log("Z:" + group.position.z);
