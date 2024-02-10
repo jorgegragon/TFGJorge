@@ -67,8 +67,8 @@
         controller2 = renderer.xr.getController(1);
         scene.add(controller2);
 
-        controller1.addEventListener('selectstart', onSelectStart);
-        controller2.addEventListener('selectstart', onSelectStart);
+        controller1.addEventListener('selectstart', onSelectStartRight);
+        controller2.addEventListener('selectstart', onSelectStartLeft);
 
         // OBJETOS Escena
         var floor = getFloor();
@@ -128,9 +128,14 @@
         window.addEventListener('resize', onWindowResize, false);
     }
 
-    function onSelectStart() {
-        console.log("Pulso Boton");
-        moveForward(0.1); // Movimiento
+    function onSelectStartRight() {
+        console.log("Pulso Boton Derecho");
+        moveForward(0.5); // Movimiento
+    }
+
+    function onSelectStartLeft() {
+        console.log("Pulso Boton Izquierdo");
+        moveForward(-0.5); // Movimiento
     }
 
     function moveForward(distance) {
