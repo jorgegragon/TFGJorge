@@ -98,23 +98,23 @@
         side4.rotateX (Math.PI / 2);
         
         box = getBox();
-        box.position.set (0, 2, -3);
+        box.position.set (0, 0.2, -1);
         box.rotateX (Math.PI / 2);
         box.name = "proxy";
         var colorOriginal = box.material.color.getHex();
 
         box1 = getBox();
-        box1.position.set (-3, 2, 3);
+        box1.position.set (-1, 0.2, 1);
         box1.rotateX (Math.PI / 2);
         box1.name = "UA1";
 
         box2 = getBox();
-        box2.position.set (3, 2, 3);
+        box2.position.set (1, 0.2, 1);
         box2.rotateX (Math.PI / 2);
         box2.name = "UA2";
 
         sphere = getSphere();
-        sphere.position.set (-3, 2, 3);
+        sphere.position.set (-15, 2, 15);
         sphere.rotateX (Math.PI/2);
         sphere.rotateY (Math.PI/-2);
         sphere.name = "sphere";
@@ -188,7 +188,7 @@
     }
 
     function getBox() {
-        var geometry = new THREE.BoxGeometry(3, 2, 4);
+        var geometry = new THREE.BoxGeometry(0.3, 0.2, 0.4);
         var material = new THREE.MeshBasicMaterial( { map: texture } );
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.z = 2;
