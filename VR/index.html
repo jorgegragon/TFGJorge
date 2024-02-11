@@ -181,7 +181,7 @@
     }
 
     function getWall(nueva) {
-        var geometry = new THREE.PlaneGeometry(4, 4);
+        var geometry = new THREE.PlaneGeometry(5, 5);
         var material = new THREE.MeshBasicMaterial( { map: nueva });
         var mesh = new THREE.Mesh(geometry, material);
         return mesh;
@@ -200,7 +200,7 @@
         var material = new THREE.MeshBasicMaterial( { map: muro } );
         material.map.wrapS = THREE.RepeatWrapping;
         material.map.wrapT = THREE.RepeatWrapping;
-        material.map.anisotropy = 4;
+        material.map.anisotropy = 1;
         material.map.repeat.set( 4, 8);
 
         var mesh = new THREE.Mesh(geometry, material);
