@@ -77,7 +77,7 @@
 
         // Pared
         wall1 = getWall(pared);
-        wall1.position.set( 0, 1.5, -8);
+        wall1.position.set( 0, 2, -4.5);
 
         var side1 = getSide();
         side1.position.set (5, 4, 0);
@@ -181,7 +181,7 @@
     }
 
     function getWall(nueva) {
-        var geometry = new THREE.PlaneGeometry(8, 8);
+        var geometry = new THREE.PlaneGeometry(4, 4);
         var material = new THREE.MeshBasicMaterial( { map: nueva });
         var mesh = new THREE.Mesh(geometry, material);
         return mesh;
