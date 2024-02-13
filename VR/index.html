@@ -19,13 +19,14 @@
 <script type="module">
     import * as THREE from 'three';
     import { VRButton } from '../jsm/webxr/VRButton.js';
+    import { getSphere, getSide, getBox, getWall, getFloor } from './js/sceneObjects.js';
 
     const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
     const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
     const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
     const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.png' );
 
-    var wall1, sphere, box, box1, box2;
+    var wall1, sphere, box, box1, box2, side1, side2, side3, side4;
 
     let camera, scene, renderer;
     let controller1, controller2;
@@ -71,7 +72,7 @@
         controller2.addEventListener('selectstart', onSelectStartLeft);
 
         // OBJETOS Escena
-        var floor = getFloor();
+        var floor = getFloor(suelo);
         floor.rotateX( Math.PI / -2 );
         floor.name = "suelo";
 
@@ -79,36 +80,36 @@
         wall1 = getWall(pared);
         wall1.position.set( 0, 4, -4.5);
 
-        var side1 = getSide();
+        side1 = getSide(muro);
         side1.position.set (5, 4, 0);
         side1.rotateX (Math.PI / 2);
 
-        var side2 = getSide();
+        side2 = getSide(muro);
         side2.position.set (-5, 4, 0);
         side2.rotateX (Math.PI / 2);
 
-        var side3 = getSide();
+        side3 = getSide(muro);
         side3.position.set (0, 4, -5);
         side3.rotateY (Math.PI / 2);
         side3.rotateX (Math.PI / 2);
 
-        var side4 = getSide();
+        side4 = getSide(muro);
         side4.position.set (0, 4, 5);
         side4.rotateY (Math.PI / 2);
         side4.rotateX (Math.PI / 2);
         
-        box = getBox();
+        box = getBox(texture);
         box.position.set (0, 0.3, -1);
         box.rotateX (Math.PI / 2);
         box.name = "proxy";
         var colorOriginal = box.material.color.getHex();
 
-        box1 = getBox();
+        box1 = getBox(texture);
         box1.position.set (-1, 0.3, 1);
         box1.rotateX (Math.PI / 2);
         box1.name = "UA1";
 
-        box2 = getBox();
+        box2 = getBox(texture);
         box2.position.set (1, 0.3, 1);
         box2.rotateX (Math.PI / 2);
         box2.name = "UA2";
@@ -169,54 +170,6 @@
         renderer.render(scene, camera);
     }
 
-    function getFloor() {
-        var geometry = new THREE.PlaneGeometry(100, 100);
-        var material = new THREE.MeshBasicMaterial( { map: suelo });
-        material.map.wrapS = THREE.RepeatWrapping;
-        material.map.wrapT = THREE.RepeatWrapping;
-        material.map.anisotropy = 4;
-        material.map.repeat.set( 4, 4);
-        var mesh = new THREE.Mesh(geometry, material);
-        return mesh;
-    }
-
-    function getWall(nueva) {
-        var geometry = new THREE.PlaneGeometry(5, 5);
-        var material = new THREE.MeshBasicMaterial( { map: nueva });
-        var mesh = new THREE.Mesh(geometry, material);
-        return mesh;
-    }
-
-    function getBox() {
-        var geometry = new THREE.BoxGeometry(0.45, 0.3, 0.6);
-        var material = new THREE.MeshBasicMaterial( { map: texture } );
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.z = 2;
-        return mesh;
-    }
-
-    function getSide() {
-        var geometry = new THREE.BoxGeometry(0.2, 10, 8);
-        var material = new THREE.MeshBasicMaterial( { map: muro } );
-        material.map.wrapS = THREE.RepeatWrapping;
-        material.map.wrapT = THREE.RepeatWrapping;
-        material.map.anisotropy = 1;
-        material.map.repeat.set( 4, 8);
-
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.z = 2;
-        return mesh;
-    }
-
-    function getSphere() {
-        var geometry = new THREE.SphereGeometry(0.075, 4.8, 3);
-        var material = new THREE.MeshBasicMaterial({color: "red"}); 
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.z = 0.5;
-        mesh.castShadow = true;
-        mesh.name = "sphere";
-        return mesh;
-    }
 </script>
 </body>
 </html>
