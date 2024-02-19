@@ -62,14 +62,14 @@
         group.add(camera);
 
         // Controllers
-        controller1 = renderer.xr.getController(0);
-        scene.add(controller1);
+        controllerRight = renderer.xr.getController(0);
+        scene.add(controllerRight);
 
-        controller2 = renderer.xr.getController(1);
-        scene.add(controller2);
+        controllerLeft = renderer.xr.getController(1);
+        scene.add(controllerLeft);
 
-        controller1.addEventListener('selectstart', onSelectStartRight);
-        controller2.addEventListener('selectstart', onSelectStartLeft);
+        controllerRight.addEventListener('selectstart', onSelectStartRight);
+        controllerLeft.addEventListener('selectstart', onSelectStartLeft);
 
         // OBJETOS Escena
         var floor = getFloor(suelo);
