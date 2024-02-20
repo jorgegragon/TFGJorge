@@ -19,6 +19,9 @@
 <script type="module">
     import * as THREE from 'three';
     import { VRButton } from '../jsm/webxr/VRButton.js';
+    import { XRControllerModelFactory } from '../jsm/webxr/XRControllerModelFactory.js';
+    import { OculusHandModel } from '../jsm/webxr/OculusHandModel.js';
+    import { OculusHandPointerModel } from '../jsm/webxr/OculusHandPointerModel.js';
     import { getSphere, getSide, getBox, getWall, getFloor } from '../VR/js/sceneObjets.js';
 
     const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
@@ -62,14 +65,51 @@
         group.add(camera);
 
         // Controllers
-        controllerRight = renderer.xr.getController(0);
-        scene.add(controllerRight);
-
-        controllerLeft = renderer.xr.getController(1);
+        controllerLeft = renderer.xr.getController(0);
         scene.add(controllerLeft);
 
-        controllerRight.addEventListener('selectstart', onSelectStartRight);
+        controllerRight = renderer.xr.getController(1);
+        scene.add(controllerRight);
+
         controllerLeft.addEventListener('selectstart', onSelectStartLeft);
+        controllerLeft.addEventListener('squeezestart', onSqueezeStartLeft);
+        controllerRight.addEventListener('selectstart', onSelectStartRight);
+        controllerRight.addEventListener('squeezestart', onSqueezeStartRight);
+
+        const controllerModelFactory = new XRControllerModelFactory();
+
+        // Controlador y Mano Izquierda
+        const controllerGripLeft = renderer.xr.getControllerGrip( 0 );
+        controllerGripLeft.add( controllerModelFactory.createControllerModel( controllerGripLeft ) );
+        scene.add( controllerGripLeft );
+
+        const handLeft = renderer.xr.getHand( 0 );
+        handLeft.add( new OculusHandModel( handLeft ) );
+        const handPointerLeft = new OculusHandPointerModel( handLeft, controllerLeft );
+        handLeft.add( handPointerLeft );
+
+        scene.add( handLeft );
+
+        // Controlador y Mano Derecha
+        const controllerGripRight = renderer.xr.getControllerGrip( 1 );
+        controllerGripRight.add( controllerModelFactory.createControllerModel( controllerGripRight ) );
+        scene.add( controllerGripRight );
+
+        const handRight = renderer.xr.getHand( 1 );
+        handRight.add( new OculusHandModel( handRight ) );
+        const handPointerRight = new OculusHandPointerModel( handRight, controllerRight );
+        handRight.add( handPointerRight );
+        scene.add( handRight );        
+
+        // LINEAS "GUIA" CONTROLADORES
+        const geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -1)]);
+
+        const line = new THREE.Line(geometry);
+        line.name = 'line';
+        line.scale.z = 5;
+
+        controllerLeft.add(line.clone());
+        controllerRight.add(line.clone());
 
         // OBJETOS Escena
         var floor = getFloor(suelo);
@@ -136,13 +176,19 @@
     }
 
     function onSelectStartRight() {
-        console.log("Pulso Boton Derecho");
         moveForward(0.5); // Movimiento
     }
 
     function onSelectStartLeft() {
-        console.log("Pulso Boton Izquierdo");
         moveForward(-0.5); // Movimiento
+    }
+
+    function onSqueezeStartRight(event) {
+        moveLateral(0.5);
+    }
+
+    function onSqueezeStartLeft(event) {
+        moveLateral(-0.5);
     }
 
     function moveForward(distance) {
@@ -151,9 +197,10 @@
         direction.multiplyScalar(distance);
         group.position.add(direction);
         //group.position.z += distance;
-        console.log("X:" + group.position.x);
-        console.log("Y:" + group.position.y);
-        console.log("Z:" + group.position.z);
+    }
+
+    function moveLateral(distance) {
+        group.position.x += distance;
     }
 
     function onWindowResize() {
