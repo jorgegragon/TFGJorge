@@ -1,7 +1,9 @@
 import * as THREE from 'three';
 
 export function makeTextSprite( message, parameters ){
+    
     if ( parameters === undefined ) parameters = {};
+    
     var fontface = parameters.hasOwnProperty("fontface") ? parameters["fontface"] : "Courier New";
     var fontsize = parameters.hasOwnProperty("fontsize") ? parameters["fontsize"] : 18;
     var borderThickness = parameters.hasOwnProperty("borderThickness") ? parameters["borderThickness"] : 4;
@@ -24,6 +26,6 @@ export function makeTextSprite( message, parameters ){
     texture.needsUpdate = true;
     var spriteMaterial = new THREE.SpriteMaterial( { map: texture} );
     var sprite = new THREE.Sprite( spriteMaterial );
-    //sprite.scale.set(0.5 * fontsize, 0.25 * fontsize, 0.75 * fontsize);
+
     return sprite;  
 }
