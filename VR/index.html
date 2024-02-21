@@ -23,6 +23,7 @@
     import { OculusHandModel } from '../jsm/webxr/OculusHandModel.js';
     import { OculusHandPointerModel } from '../jsm/webxr/OculusHandPointerModel.js';
     import { getSphere, getSide, getBox, getWall, getFloor } from '../VR/js/sceneObjets.js';
+    import { makeTextSprite } from '../VR/js/textSprite.js';
 
     const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
     const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
@@ -170,6 +171,26 @@
         scene.add(box1);
         scene.add(box2);
         scene.add(sphere);
+
+        // Titulo Objetos
+        var spritey_cliente = makeTextSprite( " UA1", 
+            { fontsize: 90, textColor: {r:0, g:0, b:0, a:1.0}} );
+        spritey_cliente.position.set(-1, 0.5, 1);
+        spritey_cliente.scale.set(2,1,0.5);
+
+        var spritey_proxy = makeTextSprite( " PROXY", 
+            { fontsize: 70, textColor: {r:0, g:0, b:0, a:1.0}} );
+        spritey_proxy.position.set(0, 0.5, -1);
+        spritey_proxy.scale.set(2,1,0.5);
+
+        var spritey_servidor = makeTextSprite( " UA2", 
+            { fontsize: 90, textColor: {r:0, g:0, b:0, a:1.0}} );
+        spritey_servidor.position.set(1, 0.5, 1);
+        spritey_servidor.scale.set(2,1,0.5);
+
+        scene.add(spritey_cliente);
+        scene.add(spritey_proxy);
+        scene.add(spritey_servidor);
 
         // Eventos
         window.addEventListener('resize', onWindowResize, false);
