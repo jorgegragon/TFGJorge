@@ -60,11 +60,6 @@
 
         document.body.appendChild(VRButton.createButton(renderer));
 
-        group = new THREE.Group();
-        scene.add(group);
-
-        group.add(camera);
-
         // Controllers
         controllerLeft = renderer.xr.getController(0);
         scene.add(controllerLeft);
@@ -171,6 +166,18 @@
         scene.add(box1);
         scene.add(box2);
         scene.add(sphere);
+
+        // Grupo Movimiento VR en escena
+        group = new THREE.Group();
+        group.add(camera);
+        group.add(controllerLeft);
+        group.add(controllerRight);
+        group.add(controllerGripLeft);
+        group.add(controllerGripRight);
+        group.add(handLeft);
+        group.add(handRight);
+
+        scene.add(group);
 
         // Titulo Objetos
         var spritey_cliente = makeTextSprite( " UA1", 
