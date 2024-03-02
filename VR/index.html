@@ -206,14 +206,15 @@
     }
 
     function onSelectStartRight() {
-        const controllerPosition = handRight.position;
-        const controllerQuaternion = handRight.quaternion;
+        const controllerPosition = scene.handRight.position;
+        const controllerQuaternion = scene.handRight.position;
         const direction = new THREE.Vector3(0, 0, -1).applyQuaternion(controllerQuaternion);
 
         raycaster.set(controllerPosition, direction.normalize());
-        const objectsToTest = [box, box1, box2].filter(obj => !!obj);
+        const objectsToTest = [scene.box, scene.box1, scene.box2].filter(obj => !!obj);
         const intersects = raycaster.intersectObjects(objectsToTest, true);
         console.log(intersects);
+        console.log(objectsToTest);
         
         console.log(scene.children);
 
