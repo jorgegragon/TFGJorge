@@ -213,8 +213,12 @@
         raycaster.set(controllerPosition, direction.normalize());
         const objectsToTest = [scene.box, scene.box1, scene.box2].filter(obj => !!obj);
         const intersects = raycaster.intersectObjects(objectsToTest, true);
+        const intersects1 = raycaster.intersectObjects(scene, true);
+        const intersects2 = raycaster.intersectObjects(scene.children, true);
 
         console.log(intersects);
+        console.log(intersects1);
+        console.log(intersects2);
         console.log(scene.children);
 
         for (let i = 0; i < intersects.length; i++) {
