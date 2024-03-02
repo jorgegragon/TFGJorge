@@ -70,11 +70,6 @@
         controllerRight = renderer.xr.getController(1);
         scene.add(controllerRight);
 
-        controllerLeft.addEventListener('selectstart', onSelectStartLeft);
-        controllerLeft.addEventListener('squeezestart', onSqueezeStartLeft);
-        controllerRight.addEventListener('selectstart', onSelectStartRight);
-        controllerRight.addEventListener('squeezestart', onSqueezeStartRight);
-
         const controllerModelFactory = new XRControllerModelFactory();
 
         // Controlador y Mano Izquierda
@@ -204,6 +199,10 @@
 
         // Eventos
         window.addEventListener('resize', onWindowResize, false);
+        controllerLeft.addEventListener('selectstart', onSelectStartLeft);
+        controllerLeft.addEventListener('squeezestart', onSqueezeStartLeft);
+        controllerRight.addEventListener('selectstart', onSelectStartRight);
+        controllerRight.addEventListener('squeezestart', onSqueezeStartRight);
     }
 
     function onSelectStartRight() {
@@ -214,6 +213,8 @@
         raycaster.set(controllerPosition, direction.normalize());
         const objectsToTest = [scene.box, scene.box1, scene.box2].filter(obj => !!obj);
         const intersects = raycaster.intersectObjects(objectsToTest, true);
+
+        console.log(intersects);
         console.log(scene.children);
 
         for (let i = 0; i < intersects.length; i++) {
