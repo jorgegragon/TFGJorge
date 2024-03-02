@@ -212,7 +212,7 @@
         const direction = new THREE.Vector3(0, 0, -1).applyQuaternion(controllerQuaternion);
 
         raycaster.set(controllerPosition, direction.normalize());
-        const intersects = raycaster.intersectObjects(scene.children, true);
+        const intersects = raycaster.intersectObjects(scene.box, true);
 
         for (let i = 0; i < intersects.length; i++) {
             switch (intersects[i].object.name) {
