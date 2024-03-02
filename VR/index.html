@@ -206,8 +206,8 @@
     }
 
     function onSelectStartRight() {
-        const controllerPosition = controllerRight.position;
-        const controllerQuaternion = controllerRight.quaternion;
+        const controllerPosition = handRight.position;
+        const controllerQuaternion = handRight.quaternion;
         const direction = new THREE.Vector3(0, 0, -1).applyQuaternion(controllerQuaternion);
 
         raycaster.set(controllerPosition, direction.normalize());
