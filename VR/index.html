@@ -213,6 +213,8 @@
 
         raycaster.set(controllerPosition, direction.normalize());
         const intersects = raycaster.intersectObjects(scene.box, true);
+        intersects = raycaster.intersectObjects(scene.box1, true);
+        intersects = raycaster.intersectObjects(scene.box2, true);
 
         for (let i = 0; i < intersects.length; i++) {
             switch (intersects[i].object.name) {
