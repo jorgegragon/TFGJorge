@@ -35,6 +35,7 @@
     let camera, scene, renderer;
     let controllerRight, controllerLeft;
     let group;
+    let handRight;
 
     // Selección
     const raycaster = new THREE.Raycaster();
@@ -89,7 +90,7 @@
         controllerGripRight.add( controllerModelFactory.createControllerModel( controllerGripRight ) );
         scene.add( controllerGripRight );
 
-        const handRight = renderer.xr.getHand( 1 );
+        handRight = renderer.xr.getHand( 1 );
         handRight.add( new OculusHandModel( handRight ) );
         const handPointerRight = new OculusHandPointerModel( handRight, controllerRight );
         handRight.add( handPointerRight );
@@ -201,13 +202,13 @@
         window.addEventListener('resize', onWindowResize, false);
         controllerLeft.addEventListener('selectstart', onSelectStartLeft);
         controllerLeft.addEventListener('squeezestart', onSqueezeStartLeft);
-        controllerRight.addEventListener('selectstart', onSelectStartRight);
+        controllerRight.addEventListener('selectstart', onSelectStartRight());
         controllerRight.addEventListener('squeezestart', onSqueezeStartRight);
     }
 
     function onSelectStartRight() {
-        const controllerPosition = group.handRight.position;
-        const controllerQuaternion = group.handRight.position;
+        const controllerPosition = handRight.position;
+        const controllerQuaternion = handRight.position;
         const direction = new THREE.Vector3(0, 0, -1).applyQuaternion(controllerQuaternion);
 
         raycaster.set(controllerPosition, direction.normalize());
