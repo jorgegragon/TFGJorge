@@ -36,6 +36,9 @@
     let controllerRight, controllerLeft;
     let group;
 
+    // Selección
+    const raycaster = new THREE.Raycaster();
+
     init();
     animate();
 
@@ -204,7 +207,26 @@
     }
 
     function onSelectStartRight() {
-        moveForward(0.5); // Movimiento
+        const controllerPosition = controllerRight.position;
+        const controllerQuaternion = controllerRight.quaternion;
+        const direction = new THREE.Vector3(0, 0, -1).applyQuaternion(controllerQuaternion);
+
+        raycaster.set(controllerPosition, direction.normalize());
+        const intersects = raycaster.intersectObjects(scene.children, true);
+
+        for (let i = 0; i < intersects.length; i++) {
+            switch (intersects[i].object.name) {
+                case "UA1":
+                    intersects[i].object.material.color.set(0xf00000);
+                    break;
+                case "UA2":
+                    intersects[i].object.material.color.set(0xf00000);
+                    break;
+                case "proxy":
+                    intersects[i].object.material.color.set(0xf00000);
+                    break;
+            }
+        }
     }
 
     function onSelectStartLeft() {
@@ -212,7 +234,7 @@
     }
 
     function onSqueezeStartRight(event) {
-        moveLateral(0.5);
+        moveForward(0.5);
     }
 
     function onSqueezeStartLeft(event) {
