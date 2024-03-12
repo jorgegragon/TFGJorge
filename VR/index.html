@@ -214,10 +214,17 @@
         raycaster.set(controllerPosition, direction.normalize());
         const objectsToTest = [box, box1, box2].filter(obj => !!obj);
         const intersects = raycaster.intersectObjects(objectsToTest, true);
-        console.log(intersects);
-        console.log(objectsToTest);
         
-        console.log(scene.children);
+            // Mostrar la posición del controlador
+            console.log("Posición del controlador:", controllerPosition);
+
+            if (intersects.length > 0) {
+                // Mostrar información sobre la intersección
+                console.log("Intersección detectada:", intersects);
+
+                // Mostrar el punto de intersección
+                console.log("Punto de intersección:", intersects[0].point);
+            }      
 
         for (let i = 0; i < intersects.length; i++) {
             switch (intersects[i].object.name) {
