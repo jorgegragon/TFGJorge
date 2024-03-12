@@ -22,7 +22,7 @@ export function makeTextSprite( message, parameters ){
     context.fillStyle = "rgba("+textColor.r+", "+textColor.g+", "+textColor.b+", 1.0)";
     context.fillText( message, borderThickness, fontsize + borderThickness);
 
-    var texture = new THREE.Texture(canvas) 
+    var texture = new THREE.Texture(canvas); 
     texture.needsUpdate = true;
     var spriteMaterial = new THREE.SpriteMaterial( { map: texture} );
     var sprite = new THREE.Sprite( spriteMaterial );
