@@ -1,7 +1,3 @@
-/**
- * @author mrdoob / http://mrdoob.com/
- */
-
 var Stats = function () {
 
 	var mode = 0;
@@ -168,4 +164,4 @@ Stats.Panel = function ( name, fg, bg ) {
 
 };
 
-export { Stats };
+export default Stats;
