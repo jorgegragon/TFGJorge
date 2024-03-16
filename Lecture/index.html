@@ -18,7 +18,15 @@
 	</head>
 	<body>
         <script src="../jsm/libs/fas.js"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "../jsm/build/three.module.js"
+                }
+            }
+        </script>
         <script type="module">
+            import * as THREE from 'three';
             import { App } from './app.js';
 
             document.addEventListener("DOMContentLoaded", function(){
