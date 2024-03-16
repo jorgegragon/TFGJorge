@@ -1,4 +1,4 @@
-import * as THREE from '../jsm/build/three.module.js';
+import { THREE } from '../jsm/build/three.module.js';
 import { VRButton } from '../jsm/webxr/VRButton.js';
 import { XRControllerModelFactory } from '../jsm/webxr/XRControllerModelFactory.js';
 import { Stats } from '../jsm/libs/stats.module.js';
