@@ -36,6 +36,8 @@ class App{
         
         this.stats = new Stats();
         document.body.appendChild( this.stats.dom );
+
+        document.body.appendChild(VRButton.createButton(this.renderer));
         
         this.raycaster = new THREE.Raycaster();
         this.workingMatrix = new THREE.Matrix4();
@@ -101,8 +103,6 @@ class App{
     
     setupXR(){
         this.renderer.xr.enabled = true;
-        
-        const button = new VRButton( this.renderer );
         
         const self = this;
         
