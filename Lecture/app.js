@@ -172,7 +172,12 @@ class App{
     
     handleController( controller, dt ){
         if (controller.userData.selectPressed ){
-            
+            const speed = 2;
+            const quaternion = this.dolly.quaternion.clone();
+            this.dolly.quaternion.copy(this.dummyCam.getWorldQuaternion());
+            this.dolly.translateZ(-dt*speed);
+            this.dolly.position.y = 0;
+            this.dolly.quaternion.copy(quaternion);
         }
     }
     
