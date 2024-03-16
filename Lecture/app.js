@@ -174,7 +174,9 @@ class App{
         if (controller.userData.selectPressed ){
             const speed = 2;
             const quaternion = this.dolly.quaternion.clone();
-            this.dolly.quaternion.copy(this.dummyCam.getWorldQuaternion());
+            const globalQuaternion = new THREE.Quaternion(); 
+            this.dummyCam.getWorldQuaternion(globalQuaternion); // Obtiene la orientación global de dummyCam
+            this.dolly.quaternion.copy(globalQuaternion);
             this.dolly.translateZ(-dt*speed);
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
