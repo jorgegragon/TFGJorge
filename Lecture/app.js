@@ -3,7 +3,7 @@ import { VRButton } from '../jsm/webxr/VRButton.js';
 import { XRControllerModelFactory } from '../jsm/webxr/XRControllerModelFactory.js';
 import { Stats } from '../jsm/libs/stats.module.js';
 import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-
+import { OculusHandPointerModel } from '../jsm/webxr/OculusHandPointerModel.js';
 
 class App{
 	constructor(){
