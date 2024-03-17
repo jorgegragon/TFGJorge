@@ -146,6 +146,7 @@ class App{
         }
         
         this.controller = this.renderer.xr.getController( 0 );
+        
         this.dolly.add( this.controller );
         this.controller.addEventListener( 'selectstart', onSelectStart );
         this.controller.addEventListener( 'selectend', onSelectEnd );
