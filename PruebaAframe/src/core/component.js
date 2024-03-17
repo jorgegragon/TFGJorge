@@ -2,7 +2,7 @@
 var schema = require('./schema');
 var scenes = require('./scene/scenes');
 var systems = require('./system');
-var utils = require('../utils/');
+var utils = require('../utils');
 
 var components = module.exports.components = {};  // Keep track of registered components.
 var parseProperties = schema.parseProperties;
