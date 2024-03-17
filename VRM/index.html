@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Lecture 3.7</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+	</head>
+	<body>
+        <script src="../jsm/libs/fas.js"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "../jsm/build/three.module.js"
+                }
+            }
+        </script>
+        <script type="module">
+            import * as THREE from 'three';
+            import { App } from './app.js';
+
+            document.addEventListener("DOMContentLoaded", function(){
+                const app = new App();
+                window.app = app;
+            });
+        </script>
+	</body>
+</html>
