@@ -202,7 +202,7 @@ class App{
     
     handleController( controller, dt ){
         if (controller.userData.selectPressed ){
-            const speed = 2;
+            const speed = 0.5;
             const quaternion = this.dolly.quaternion.clone();
             const globalQuaternion = new THREE.Quaternion(); 
             this.dummyCam.getWorldQuaternion(globalQuaternion); // Obtiene la orientación global de dummyCam
