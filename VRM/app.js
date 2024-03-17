@@ -3,6 +3,7 @@ import { VRButton } from '../jsm/webxr/VRButton.js';
 import { XRControllerModelFactory } from '../jsm/webxr/XRControllerModelFactory.js';
 import { Stats } from '../jsm/libs/stats.module.js';
 import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { getSphere, getSide, getBox, getWall, getFloor } from '../VRM/js/sceneObjets.js';
 
 const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
 const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
@@ -99,8 +100,6 @@ class App{
         side4.rotateY (Math.PI / 2);
         side4.rotateX (Math.PI / 2);
         this.scene.add( side4 );
-
-        var colorOriginal = box.material.color.getHex();
 
         box = getBox(texture);
         box.position.set (0, 0.3, -1);
