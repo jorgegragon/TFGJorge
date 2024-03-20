@@ -28,7 +28,7 @@ class App{
         this.clock = new THREE.Clock();
         
 		this.camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 200 );
-		this.camera.position.set( 0, 1.6, 5 );
+		this.camera.position.set( 0, 1.6, 3 );
         
 		this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color( 0x5E7E9F );
@@ -218,6 +218,10 @@ class App{
             this.dolly.translateZ(-dt*speed);
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
+        
+            if (this.controllerGrip) {
+                this.controllerGrip.translateZ(-dt * speed);
+            }
         }
     }
     
@@ -230,7 +234,9 @@ class App{
 	render( ) {  
         const dt = this.clock.getDelta();
         this.stats.update();
-        if (this.controller ) this.handleController( this.controller, dt );
+        if (this.controller) {
+            this.handleController(this.controller, dt);
+        }
         this.renderer.render( this.scene, this.camera );
     }
 }
