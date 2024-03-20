@@ -11,7 +11,8 @@ export function getSphere() {
 }
 
 export function getSide(texture) {
-    var geometry = new THREE.BoxGeometry(0.2, 10, 8);
+    //var geometry = new THREE.BoxGeometry(0.2, 10, 8);
+    var geometry = new THREE.BoxGeometry(3, 100, 25);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     material.map.wrapS = THREE.RepeatWrapping;
     material.map.wrapT = THREE.RepeatWrapping;
@@ -23,7 +24,8 @@ export function getSide(texture) {
 }
 
 export function getBox(texture) {
-    var geometry = new THREE.BoxGeometry(0.45, 0.3, 0.6);
+    //var geometry = new THREE.BoxGeometry(0.45, 0.3, 0.6);
+    var geometry = new THREE.BoxGeometry(3, 2, 4);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     var mesh = new THREE.Mesh(geometry, material);
     mesh.position.z = 2;
@@ -31,7 +33,8 @@ export function getBox(texture) {
 }
 
 export function getWall(texture) {
-    var geometry = new THREE.PlaneGeometry(5, 5);
+    //var geometry = new THREE.PlaneGeometry(5, 5);
+    var geometry = new THREE.PlaneGeometry(20, 20);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     var mesh = new THREE.Mesh(geometry, material);
     return mesh;

@@ -10,7 +10,7 @@ const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.
 const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
 const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.png' );
 
-var wall1, sphere, box, box1, box2, side1, side2, side3;
+var wall1, sphere, box, box1, box2, side1, side2, side3, side4;
 
 class App{
 	constructor(){
@@ -76,39 +76,45 @@ class App{
         this.scene.add( floor );
         // Pared
         wall1 = getWall(pared);
-        wall1.position.set( 0, 12.5, -45);
+        wall1.position.set( 0, 4, -4.5);
         this.scene.add( wall1 );
 
         side1 = getSide(muro);
-        side1.position.set (50, 12.5, 0);
+        side1.position.set (5, 4, 0);
         side1.rotateX (Math.PI / 2);
         this.scene.add( side1 );
 
         side2 = getSide(muro);
-        side2.position.set (-50, 12.5, 0);
+        side2.position.set (-5, 4, 0);
         side2.rotateX (Math.PI / 2);
         this.scene.add( side2 );
 
         side3 = getSide(muro);
-        side3.position.set (0, 12.5, -48.5);
+        side3.position.set (0, 4, -5);
         side3.rotateY (Math.PI / 2);
         side3.rotateX (Math.PI / 2);
         this.scene.add( side3 );
 
+        side4 = getSide(muro);
+        side4.position.set (0, 4, 5);
+        side4.rotateY (Math.PI / 2);
+        side4.rotateX (Math.PI / 2);
+        this.scene.add( side4 );
+
         box = getBox(texture);
-        box.position.set (0, 2, -15);
+        box.position.set (0, 0.3, -1);
         box.rotateX (Math.PI / 2);
         box.name = "proxy";
         this.scene.add( box );
 
         box1 = getBox(texture);
-        box1.position.set (-15, 2, 15);
+        box1.position.set (-1, 0.3, 1);
         box1.rotateX (Math.PI / 2);
         box1.name = "UA1";
         this.scene.add( box1 );
 
         box2 = getBox(texture);
-        box2.position.set (15, 2, 15);
+        box2.position.set (1, 0.3, 1);
         box2.rotateX (Math.PI / 2);
         box2.name = "UA2";
         this.scene.add( box2 );
