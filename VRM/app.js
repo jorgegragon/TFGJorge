@@ -153,32 +153,61 @@ class App{
             
         }
         
-        this.controller = this.renderer.xr.getController( 0 );
+        // Controlador Izquierdo
+        this.controllerLeft = this.renderer.xr.getController( 0 );
         
-        this.dolly.add( this.controller );
-        this.controller.addEventListener( 'selectstart', onSelectStart );
-        this.controller.addEventListener( 'selectend', onSelectEnd );
-        this.controller.addEventListener( 'connected', function ( event ) {
+        this.dolly.add( this.controllerLeft );
+        this.controllerLeft.addEventListener( 'selectstart', onSelectStart );
+        this.controllerLeft.addEventListener( 'selectend', onSelectEnd );
+        this.controllerLeft.addEventListener( 'connected', function ( event ) {
 
             const mesh = self.buildController.call(self, event.data );
             mesh.scale.z = 0;
             this.add( mesh );
 
         } );
-        this.controller.addEventListener( 'disconnected', function () {
+        this.controllerLeft.addEventListener( 'disconnected', function () {
 
             this.remove( this.children[ 0 ] );
-            self.controller = null;
-            self.controllerGrip = null;
+            self.controllerLeft = null;
+            self.controllerLeftGrip = null;
 
         } );
-        this.scene.add( this.controller );
+
+        this.scene.add( this.controllerLeft );
 
         const controllerModelFactory = new XRControllerModelFactory();
 
-        this.controllerGrip = this.renderer.xr.getControllerGrip( 0 );
-        this.controllerGrip.add( controllerModelFactory.createControllerModel( this.controllerGrip ) );
-        this.scene.add( this.controllerGrip );
+        this.controllerLeftGrip = this.renderer.xr.getControllerGrip( 0 );
+        this.controllerLeftGrip.add( controllerModelFactory.createControllerModel( this.controllerLeftGrip ) );
+        this.scene.add( this.controllerLeftGrip );
+
+        // Controlador Derecho
+        this.controllerRight = this.renderer.xr.getController( 1 );
+        
+        this.dolly.add( this.controllerRight );
+        this.controllerRight.addEventListener( 'selectstart', onSelectStart );
+        this.controllerRight.addEventListener( 'selectend', onSelectEnd );
+        this.controllerRight.addEventListener( 'connected', function ( event ) {
+
+            const mesh = self.buildController.call(self, event.data );
+            mesh.scale.z = 0;
+            this.add( mesh );
+
+        } );
+        this.controllerRight.addEventListener( 'disconnected', function () {
+
+            this.remove( this.children[ 0 ] );
+            self.controllerRight = null;
+            self.controllerRightGrip = null;
+
+        } );
+
+        this.scene.add( this.controllerRight );
+
+        this.controllerRightGrip = this.renderer.xr.getControllerGrip( 0 );
+        this.controllerRightGrip.add( controllerModelFactory.createControllerModel( this.controllerRightGrip ) );
+        this.scene.add( this.controllerRightGrip );
 
     }
     
@@ -218,10 +247,6 @@ class App{
             this.dolly.translateZ(-dt*speed);
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
-        
-            if (this.controllerGrip) {
-                this.controllerGrip.translateZ(-dt * speed);
-            }
         }
     }
     
@@ -234,8 +259,8 @@ class App{
 	render( ) {  
         const dt = this.clock.getDelta();
         this.stats.update();
-        if (this.controller) {
-            this.handleController(this.controller, dt);
+        if (this.controllerLeft) {
+            this.handleController(this.controllerLeft, dt);
         }
         this.renderer.render( this.scene, this.camera );
     }
