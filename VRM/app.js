@@ -152,9 +152,17 @@ class App{
             this.userData.selectPressed = false;
             
         }
+
+        // LINEAS "GUIA" CONTROLADORES
+        const geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -1)]);
+
+        const line = new THREE.Line(geometry);
+        line.name = 'line';
+        line.scale.z = 5;
         
         // Controlador Izquierdo
         this.controllerLeft = this.renderer.xr.getController( 0 );
+        this.controllerLeft.add(line.clone());
         
         this.dolly.add( this.controllerLeft );
         this.controllerLeft.addEventListener( 'selectstart', onSelectStart );
@@ -185,6 +193,7 @@ class App{
 
         // Controlador Derecho
         this.controllerRight = this.renderer.xr.getController( 1 );
+        this.controllerRight.add(line.clone());
         
         this.dolly.add( this.controllerRight );
         this.controllerRight.addEventListener( 'selectstart', onSelectStart );
