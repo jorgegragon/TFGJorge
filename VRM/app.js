@@ -237,9 +237,20 @@ class App{
 
     }
     
-    handleController( controller, dt ){
-        if (controller.userData.selectPressed ){
+    handleController( controllerLeft, controllerRight, dt ){
+        if (controllerLeft.userData.selectPressed ){
             const speed = 0.5;
+            const quaternion = this.dolly.quaternion.clone();
+            const globalQuaternion = new THREE.Quaternion(); 
+            this.dummyCam.getWorldQuaternion(globalQuaternion); // Obtiene la orientación global de dummyCam
+            this.dolly.quaternion.copy(globalQuaternion);
+            this.dolly.translateZ(-dt*speed);
+            this.dolly.position.y = 0;
+            this.dolly.quaternion.copy(quaternion);
+        }
+
+        if (controllerRight.userData.selectPressed ){
+            const speed = 2;
             const quaternion = this.dolly.quaternion.clone();
             const globalQuaternion = new THREE.Quaternion(); 
             this.dummyCam.getWorldQuaternion(globalQuaternion); // Obtiene la orientación global de dummyCam
@@ -259,8 +270,8 @@ class App{
 	render( ) {  
         const dt = this.clock.getDelta();
         this.stats.update();
-        if (this.controllerLeft) {
-            this.handleController(this.controllerLeft, dt);
+        if (this.controllerLeft || this.controllerRight ) {
+            this.handleController(this.controllerLeft, this.controllerRight, dt);
         }
         this.renderer.render( this.scene, this.camera );
     }
