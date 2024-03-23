@@ -180,6 +180,7 @@ class App{
 
         this.controllerLeftGrip = this.renderer.xr.getControllerGrip( 0 );
         this.controllerLeftGrip.add( controllerModelFactory.createControllerModel( this.controllerLeftGrip ) );
+        this.dolly.add( this.controllerLeftGrip );
         this.scene.add( this.controllerLeftGrip );
 
         // Controlador Derecho
@@ -207,6 +208,7 @@ class App{
 
         this.controllerRightGrip = this.renderer.xr.getControllerGrip( 1 );
         this.controllerRightGrip.add( controllerModelFactory.createControllerModel( this.controllerRightGrip ) );
+        this.dolly.add( this.controllerRightGrip );
         this.scene.add( this.controllerRightGrip );
 
     }
