@@ -205,7 +205,7 @@ class App{
 
         this.scene.add( this.controllerRight );
 
-        this.controllerRightGrip = this.renderer.xr.getControllerGrip( 0 );
+        this.controllerRightGrip = this.renderer.xr.getControllerGrip( 1 );
         this.controllerRightGrip.add( controllerModelFactory.createControllerModel( this.controllerRightGrip ) );
         this.scene.add( this.controllerRightGrip );
 
