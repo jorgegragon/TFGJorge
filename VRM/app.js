@@ -181,7 +181,6 @@ class App{
             self.controllerLeftGrip = null;
 
         } );
-        this.camera.add (this.controllerLeft);
         this.scene.add(this.controllerLeft);
 
         const controllerModelFactory = new XRControllerModelFactory();
@@ -189,7 +188,6 @@ class App{
         this.controllerLeftGrip = this.renderer.xr.getControllerGrip( 0 );
         this.controllerLeftGrip.add( controllerModelFactory.createControllerModel( this.controllerLeftGrip ) );
         this.dolly.add( this.controllerLeftGrip );
-        this.camera.add (this.controllerLeftGrip);
         this.scene.add( this.controllerLeftGrip );
 
         // Controlador Derecho
@@ -213,13 +211,11 @@ class App{
             self.controllerRightGrip = null;
 
         } );
-        this.camera.add (this.controllerRight);
         this.scene.add( this.controllerRight );
 
         this.controllerRightGrip = this.renderer.xr.getControllerGrip( 1 );
         this.controllerRightGrip.add( controllerModelFactory.createControllerModel( this.controllerRightGrip ) );
         this.dolly.add( this.controllerRightGrip );
-        this.camera.add (this.controllerRightGrip);
         this.scene.add( this.controllerRightGrip );
 
     }
