@@ -248,7 +248,7 @@ class App{
     
     handleController( controllerLeft, controllerRight, dt ){
         if (controllerLeft.userData.selectPressed ){
-            const speed = 0.5;
+            const speed = 1;
             const quaternion = this.dolly.quaternion.clone();
             const globalQuaternion = new THREE.Quaternion(); 
             this.dummyCam.getWorldQuaternion(globalQuaternion); // Obtiene la orientación global de dummyCam
@@ -259,14 +259,19 @@ class App{
         }
 
         if (controllerRight.userData.selectPressed ){
-            const speed = 2;
-            const quaternion = this.dolly.quaternion.clone();
-            const globalQuaternion = new THREE.Quaternion(); 
-            this.dummyCam.getWorldQuaternion(globalQuaternion); // Obtiene la orientación global de dummyCam
-            this.dolly.quaternion.copy(globalQuaternion);
-            this.dolly.translateZ(-dt*speed);
-            this.dolly.position.y = 0;
-            this.dolly.quaternion.copy(quaternion);
+            this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
+            this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
+
+            const intersects = this.raycaster.intersectObject( this.box );
+
+            if (intersects.length>0){
+                const boxMaterial = this.box.material;
+                if (boxMaterial.color.getHex() === 0xff0000) {
+                    boxMaterial.color.set(0x0000ff);
+                } else {
+                    boxMaterial.color.set(0xff0000);
+                }
+            }
         }
     }
     
