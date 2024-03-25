@@ -27,7 +27,7 @@ export function getBox(texture) {
     const material = new THREE.MeshBasicMaterial({ map: texture });
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.z = 2;
-    mesh.layers.enable(0);
+    mesh.layers.enable(1);
     return mesh;
 }
 
