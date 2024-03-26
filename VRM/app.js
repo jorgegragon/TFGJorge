@@ -262,6 +262,9 @@ class App{
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
             this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
 
+            console.log("Posición del rayo:", this.raycaster.ray.origin);
+            console.log("Dirección del rayo:", this.raycaster.ray.direction);
+
             const intersects = this.raycaster.intersectObject( this.scene );
             
             for ( let i = 0; i < intersects.length; i ++ ) {
