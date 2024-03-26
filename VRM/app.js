@@ -257,8 +257,8 @@ class App{
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
         }
-
-        if (controllerRight.userData.onSelectEnd ){
+        let codigoEjecutado = false;
+        if (controllerRight.userData.selectPressed && !codigoEjecutado ){
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
             this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
 
@@ -280,6 +280,7 @@ class App{
                     boxMaterial.color.set(0xff0000);
                 }
             }
+            let codigoEjecutado = true;
         }
     }
     
