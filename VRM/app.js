@@ -257,10 +257,13 @@ class App{
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
         }
-        let codigoEjecutado = false;
-        if (controllerRight.userData.selectPressed && !codigoEjecutado ){
+
+        if (controllerRight.userData.selectPressed ){
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
-            this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
+
+            const controllerRightDirection = new THREE.Vector3();
+            controllerRight.getWorldDirection(controllerRightDirection);
+            this.raycaster.ray.direction.copy(controllerRightDirection);
 
             console.log("Posición del rayo:", this.raycaster.ray.origin);
             console.log("Dirección del rayo:", this.raycaster.ray.direction);
@@ -280,7 +283,6 @@ class App{
                     boxMaterial.color.set(0xff0000);
                 }
             }
-            codigoEjecutado = true;
         }
     }
     
