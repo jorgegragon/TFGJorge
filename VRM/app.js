@@ -258,14 +258,15 @@ class App{
             this.dolly.quaternion.copy(quaternion);
         }
 
-        if (controllerRight.userData.selectPressed ){
+        if (controllerRight.userData.onSelectEnd ){
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
             this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
 
             const intersects = this.raycaster.intersectObject( this.scene );
             
             for ( let i = 0; i < intersects.length; i ++ ) {
-                console.log("Intersección detectada:", intersects[i].object.name);
+                console.log("Nombre Intersección:", intersects[i].object.name);
+                console.log("Intersección detectada:", intersects[i]);
             }
 
             if (intersects.length>0){
