@@ -280,7 +280,7 @@ class App{
                     boxMaterial.color.set(0xff0000);
                 }
             }
-            let codigoEjecutado = true;
+            codigoEjecutado = true;
         }
     }
     
