@@ -262,7 +262,7 @@ class App{
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
             this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
 
-            const intersects = this.raycaster.intersectObject( box );
+            const intersects = this.raycaster.intersectObject( this.scene );
             console.log("Intersección detectada:", intersects);
 
             if (intersects.length>0){
