@@ -263,7 +263,10 @@ class App{
             this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
 
             const intersects = this.raycaster.intersectObject( this.scene );
-            console.log("Intersección detectada:", intersects);
+            
+            for ( let i = 0; i < intersects.length; i ++ ) {
+                console.log("Intersección detectada:", intersects[i].object.name);
+            }
 
             if (intersects.length>0){
                 const boxMaterial = box.material;
