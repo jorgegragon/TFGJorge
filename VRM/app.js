@@ -260,7 +260,8 @@ class App{
 
         if (controllerRight.userData.selectPressed ){
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
-
+            
+            //this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
             const controllerRightDirection = new THREE.Vector3();
             controllerRight.getWorldDirection(controllerRightDirection);
             this.raycaster.ray.direction.copy(controllerRightDirection);
