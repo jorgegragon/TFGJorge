@@ -9,6 +9,11 @@ const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif'
 const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
 const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
 const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.png' );
+const att_ua1= new THREE.TextureLoader().load( '../Imagenes/parametros/attua1.png' );
+const att_ua2 = new THREE.TextureLoader().load( '../Imagenes/parametros/attua2.png' );
+const att_proxy = new THREE.TextureLoader().load( '../Imagenes/parametros/attproxy.png' );
+        
+
 
 let wall1;
 let sphere;
@@ -273,8 +278,38 @@ class App{
             const intersects = this.raycaster.intersectObject( this.scene );
             
             for ( let i = 0; i < intersects.length; i ++ ) {
-                console.log("Nombre Intersección:", intersects[i].object.name);
-                console.log("Intersección detectada:", intersects[i]);
+                switch (intersects[i].object.name) {
+                    case "UA1":
+                        if (intersects[i].object.material.color.getHex() === 0xff0000) {
+                            intersects[i].object.material.color.set(0xffffff);
+                            wall1.material.map = att_ua1;
+                        } else {
+                            intersects[i].object.material.color.set(0xff0000);
+                            wall1.material.map = pared;
+                        }
+                        break;
+
+                    case "UA2":
+                        if (intersects[i].object.material.color.getHex() === 0xff0000) {
+                            intersects[i].object.material.color.set(0xffffff);
+                            wall1.material.map = att_ua2;
+                        } else {
+                            intersects[i].object.material.color.set(0xff0000);
+                            wall1.material.map = pared;
+                        }
+                        break;
+                    case "proxy":
+                        if (intersects[i].object.material.color.getHex() === 0xff0000) {
+                            intersects[i].object.material.color.set(0xffffff);
+                            wall1.material.map = att_proxy;
+                        } else {
+                            intersects[i].object.material.color.set(0xff0000);
+                            wall1.material.map = pared;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
 
             if (intersects.length>0){
