@@ -277,33 +277,33 @@ class App{
 
             const intersects = this.raycaster.intersectObject( this.scene );
             
-            for ( let i = 0; i < intersects.length; i ++ ) {
-                switch (intersects[i].object.name) {
+            for (const intersect of intersects) {
+                switch (intersect.object.name) {
                     case "UA1":
-                        if (intersects[i].object.material.color.getHex() === 0xff0000) {
-                            intersects[i].object.material.color.set(0xffffff);
+                        if (intersect.object.material.color.getHex() === 0xff0000) {
+                            intersect.object.material.color.set(0xffffff);
                             wall1.material.map = att_ua1;
                         } else {
-                            intersects[i].object.material.color.set(0xff0000);
+                            intersect.object.material.color.set(0xff0000);
                             wall1.material.map = pared;
                         }
                         break;
 
                     case "UA2":
-                        if (intersects[i].object.material.color.getHex() === 0xff0000) {
-                            intersects[i].object.material.color.set(0xffffff);
+                        if (intersect.object.material.color.getHex() === 0xff0000) {
+                            intersect.object.material.color.set(0xffffff);
                             wall1.material.map = att_ua2;
                         } else {
-                            intersects[i].object.material.color.set(0xff0000);
+                            intersect.object.material.color.set(0xff0000);
                             wall1.material.map = pared;
                         }
                         break;
                     case "proxy":
-                        if (intersects[i].object.material.color.getHex() === 0xff0000) {
-                            intersects[i].object.material.color.set(0xffffff);
+                        if (intersect.object.material.color.getHex() === 0xff0000) {
+                            intersect.object.material.color.set(0xffffff);
                             wall1.material.map = att_proxy;
                         } else {
-                            intersects[i].object.material.color.set(0xff0000);
+                            intersect.object.material.color.set(0xff0000);
                             wall1.material.map = pared;
                         }
                         break;
