@@ -272,9 +272,6 @@ class App{
             const invertedDirection = controllerRightDirection.clone().multiplyScalar(-1);
             this.raycaster.ray.direction.copy(invertedDirection);
 
-            console.log("Posición del rayo:", this.raycaster.ray.origin);
-            console.log("Dirección del rayo:", this.raycaster.ray.direction);
-
             const intersects = this.raycaster.intersectObject( this.scene );
             
             for (const intersect of intersects) {
