@@ -263,8 +263,8 @@ class App{
             this.dolly.quaternion.copy(quaternion);
         }
 
-        
-        if (controllerRight.userData.selectPressed ){
+        let codigoEjecutado = false;
+        if (controllerRight.userData.selectPressed && !codigoEjecutado){
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
             
             //this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
@@ -286,7 +286,7 @@ class App{
                             wall1.material.map = att_ua1;
                         } else {
                             intersect.object.material.color.set(0xff0000);
-                            box1.material.color.set(0xffffff);
+                            box.material.color.set(0xffffff);
                             box2.material.color.set(0xffffff);
                             wall1.material.map = pared;
                         }
@@ -299,7 +299,7 @@ class App{
                         } else {
                             intersect.object.material.color.set(0xff0000);
                             box.material.color.set(0xffffff);
-                            box2.material.color.set(0xffffff);
+                            box1.material.color.set(0xffffff);
                             wall1.material.map = pared;
                         }
                         break;
@@ -309,8 +309,8 @@ class App{
                             wall1.material.map = att_proxy;
                         } else {
                             intersect.object.material.color.set(0xff0000);
-                            box.material.color.set(0xffffff);
                             box1.material.color.set(0xffffff);
+                            box2.material.color.set(0xffffff);
                             wall1.material.map = pared;
                         }
                         break;
@@ -318,6 +318,9 @@ class App{
                         break;
                 }
             }
+            codigoEjecutado = true;
+        }else if (!controllerRight.userData.selectPressed){
+            codigoEjecutado = false;
         }
     }
     
