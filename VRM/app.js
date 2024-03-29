@@ -285,6 +285,8 @@ class App{
                             wall1.material.map = att_ua1;
                         } else {
                             intersect.object.material.color.set(0xff0000);
+                            box1.material.color.set(0xffffff);
+                            box2.material.color.set(0xffffff);
                             wall1.material.map = pared;
                         }
                         break;
@@ -295,6 +297,8 @@ class App{
                             wall1.material.map = att_ua2;
                         } else {
                             intersect.object.material.color.set(0xff0000);
+                            box.material.color.set(0xffffff);
+                            box2.material.color.set(0xffffff);
                             wall1.material.map = pared;
                         }
                         break;
@@ -304,6 +308,8 @@ class App{
                             wall1.material.map = att_proxy;
                         } else {
                             intersect.object.material.color.set(0xff0000);
+                            box.material.color.set(0xffffff);
+                            box1.material.color.set(0xffffff);
                             wall1.material.map = pared;
                         }
                         break;
