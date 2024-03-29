@@ -280,7 +280,7 @@ class App{
             if (intersects.length>0){
                 const boxMaterial = box.material;
                 if (boxMaterial.color.getHex() === 0xff0000) {
-                    boxMaterial.color.set(0x0000ff);
+                    boxMaterial.color.set(0xffffff);
                 } else {
                     boxMaterial.color.set(0xff0000);
                 }
