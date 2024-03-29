@@ -279,35 +279,35 @@ class App{
                     case "UA1":
                         if (intersect.object.material.color.getHex() === 0xff0000) {
                             intersect.object.material.color.set(0xffffff);
-                            wall1.material.map = att_ua1;
+                            wall1.material.map = pared;
                         } else {
                             intersect.object.material.color.set(0xff0000);
                             box.material.color.set(0xffffff);
                             box2.material.color.set(0xffffff);
-                            wall1.material.map = pared;
+                            wall1.material.map = att_ua1;
                         }
                         break;
 
                     case "UA2":
                         if (intersect.object.material.color.getHex() === 0xff0000) {
                             intersect.object.material.color.set(0xffffff);
-                            wall1.material.map = att_ua2;
+                            wall1.material.map = pared;
                         } else {
                             intersect.object.material.color.set(0xff0000);
                             box.material.color.set(0xffffff);
                             box1.material.color.set(0xffffff);
-                            wall1.material.map = pared;
+                            wall1.material.map = att_ua2;
                         }
                         break;
                     case "proxy":
                         if (intersect.object.material.color.getHex() === 0xff0000) {
                             intersect.object.material.color.set(0xffffff);
-                            wall1.material.map = att_proxy;
+                            wall1.material.map = pared;
                         } else {
                             intersect.object.material.color.set(0xff0000);
                             box1.material.color.set(0xffffff);
                             box2.material.color.set(0xffffff);
-                            wall1.material.map = pared;
+                            wall1.material.map = att_proxy;
                         }
                         break;
                     default:
