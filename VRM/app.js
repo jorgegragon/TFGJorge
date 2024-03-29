@@ -263,7 +263,8 @@ class App{
             this.dolly.quaternion.copy(quaternion);
         }
 
-        if (controllerRight.userData.selectPressed ){
+        let codigoEjecutado = false;
+        if (controllerRight.userData.selectPressed && !codigoEjecutado){
             this.raycaster.ray.origin.setFromMatrixPosition( controllerRight.matrixWorld );
             
             //this.raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( this.workingMatrix );
@@ -317,6 +318,9 @@ class App{
                         break;
                 }
             }
+            codigoEjecutado = true;
+        }else if (!controllerRight.userData.selectPressed){
+            codigoEjecutado = false;
         }
     }
     
