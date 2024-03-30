@@ -251,57 +251,6 @@ class App{
         }
 
     }
-    
-    onSelectStart(controllerRight) {
-        this.raycaster.ray.origin.setFromMatrixPosition(controllerRight.matrixWorld);
-    
-        const controllerRightDirection = new THREE.Vector3();
-        controllerRight.getWorldDirection(controllerRightDirection);
-        const invertedDirection = controllerRightDirection.clone().multiplyScalar(-1);
-        this.raycaster.ray.direction.copy(invertedDirection);
-    
-        const intersects = this.raycaster.intersectObject(this.scene);
-    
-        for (const intersect of intersects) {
-            switch (intersect.object.name) {
-                case "UA1":
-                    if (intersect.object.material.color.getHex() === 0xff0000) {
-                        intersect.object.material.color.set(0xffffff);
-                        wall1.material.map = pared;
-                    } else {
-                        intersect.object.material.color.set(0xff0000);
-                        box.material.color.set(0xffffff);
-                        box2.material.color.set(0xffffff);
-                        wall1.material.map = att_ua1;
-                    }
-                    break;
-                case "UA2":
-                    if (intersect.object.material.color.getHex() === 0xff0000) {
-                        intersect.object.material.color.set(0xffffff);
-                        wall1.material.map = pared;
-                    } else {
-                        intersect.object.material.color.set(0xff0000);
-                        box.material.color.set(0xffffff);
-                        box1.material.color.set(0xffffff);
-                        wall1.material.map = att_ua2;
-                    }
-                    break;
-                case "proxy":
-                    if (intersect.object.material.color.getHex() === 0xff0000) {
-                        intersect.object.material.color.set(0xffffff);
-                        wall1.material.map = pared;
-                    } else {
-                        intersect.object.material.color.set(0xff0000);
-                        box1.material.color.set(0xffffff);
-                        box2.material.color.set(0xffffff);
-                        wall1.material.map = att_proxy;
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
 
     handleController( controllerLeft, controllerRight, dt ){
         if (controllerLeft.userData.selectPressed ){
@@ -316,7 +265,54 @@ class App{
         }
 
         if (controllerRight.userData.selectPressed ){
-            this.onSelectStart(controllerRight);
+            this.raycaster.ray.origin.setFromMatrixPosition(controllerRight.matrixWorld);
+        
+            const controllerRightDirection = new THREE.Vector3();
+            controllerRight.getWorldDirection(controllerRightDirection);
+            const invertedDirection = controllerRightDirection.clone().multiplyScalar(-1);
+            this.raycaster.ray.direction.copy(invertedDirection);
+        
+            const intersects = this.raycaster.intersectObject(this.scene);
+        
+            for (const intersect of intersects) {
+                switch (intersect.object.name) {
+                    case "UA1":
+                        if (intersect.object.material.color.getHex() === 0xff0000) {
+                            intersect.object.material.color.set(0xffffff);
+                            wall1.material.map = pared;
+                        } else {
+                            intersect.object.material.color.set(0xff0000);
+                            box.material.color.set(0xffffff);
+                            box2.material.color.set(0xffffff);
+                            wall1.material.map = att_ua1;
+                        }
+                        break;
+                    case "UA2":
+                        if (intersect.object.material.color.getHex() === 0xff0000) {
+                            intersect.object.material.color.set(0xffffff);
+                            wall1.material.map = pared;
+                        } else {
+                            intersect.object.material.color.set(0xff0000);
+                            box.material.color.set(0xffffff);
+                            box1.material.color.set(0xffffff);
+                            wall1.material.map = att_ua2;
+                        }
+                        break;
+                    case "proxy":
+                        if (intersect.object.material.color.getHex() === 0xff0000) {
+                            intersect.object.material.color.set(0xffffff);
+                            wall1.material.map = pared;
+                        } else {
+                            intersect.object.material.color.set(0xff0000);
+                            box1.material.color.set(0xffffff);
+                            box2.material.color.set(0xffffff);
+                            wall1.material.map = att_proxy;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
     
