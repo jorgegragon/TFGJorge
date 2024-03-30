@@ -198,6 +198,7 @@ class App{
         // Controlador Derecho
         this.controllerRight = this.renderer.xr.getController( 1 );
         this.controllerRight.add(line.clone());
+        this.controllerRight.position.set(0.5, 1.5, 3);
         
         this.dolly.add( this.controllerRight );
         this.controllerRight.addEventListener( 'selectstart', onSelectStart );
