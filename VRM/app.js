@@ -90,6 +90,7 @@ class App{
         // Pared
         wall1 = getWall(pared);
         wall1.position.set( 0, 4, -4.5);
+        wall1.name = "estado";
         this.scene.add( wall1 );
 
         side1 = getSide(muro);
@@ -308,6 +309,11 @@ class App{
                             box2.material.color.set(0xffffff);
                             wall1.material.map = att_proxy;
                         }
+                        break;
+                    case "estado":
+                        box.material.color.set(0xff0000);
+                        box1.material.color.set(0xff0000);
+                        box2.material.color.set(0xff0000);
                         break;
                     default:
                         break;
