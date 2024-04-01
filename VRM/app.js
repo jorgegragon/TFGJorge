@@ -138,7 +138,7 @@ class App{
         this.scene.add( box2 );
 
         sphere = getSphere();
-        sphere.position.set (0, 0, 0);
+        sphere.position.set (0, 0.3, 0);
         sphere.rotateX (Math.PI/2);
         sphere.rotateY (Math.PI/-2);
         sphere.name = "sphere";
