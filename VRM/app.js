@@ -13,7 +13,11 @@ const att_ua1= new THREE.TextureLoader().load( '../Imagenes/parametros/attua1.pn
 const att_ua2 = new THREE.TextureLoader().load( '../Imagenes/parametros/attua2.png' );
 const att_proxy = new THREE.TextureLoader().load( '../Imagenes/parametros/attproxy.png' );
         
-
+// Secuencia
+let start = false;
+let estado;
+let resultado = "Inicio";
+let contador = 0;
 
 let wall1;
 let sphere;
@@ -90,7 +94,7 @@ class App{
         // Pared
         wall1 = getWall(pared);
         wall1.position.set( 0, 4, -4.5);
-        wall1.name = "estado";
+        wall1.name = "paredInicio";
         this.scene.add( wall1 );
 
         side1 = getSide(muro);
@@ -132,6 +136,13 @@ class App{
         box2.rotateX (Math.PI / 2);
         box2.name = "UA2";
         this.scene.add( box2 );
+
+        sphere = getSphere();
+        sphere.position.set (-15, 2, 15);
+        sphere.rotateX (Math.PI/2);
+        sphere.rotateY (Math.PI/-2);
+        sphere.name = "sphere";
+        this.scene.add(sphere);
         
         this.dolly = new THREE.Object3D();
         this.dolly.position.z = 5;
@@ -310,10 +321,18 @@ class App{
                             wall1.material.map = att_proxy;
                         }
                         break;
-                    case "estado":
-                        box.material.color.set(0xff0000);
-                        box1.material.color.set(0xff0000);
-                        box2.material.color.set(0xff0000);
+                    case "paredInicio":
+                        start = true;
+                        wall1.material.map = pared;
+                        sphere.geometry = new THREE.SphereGeometry(0.5, 32, 20, 0, Math.PI*2, 0, Math.PI);
+                        if (contador == 0) {
+                            resultado = "Register";      
+                            estado = "Register UA1"; 
+                            document.getElementById("marcadores").innerHTML = resultado;
+                        }
+                        box.material.color.set(0xffffff);
+                        box1.material.color.set(0xffffff);
+                        box2.material.color.set(0xffffff);
                         break;
                     default:
                         break;
