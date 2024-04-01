@@ -328,7 +328,6 @@ class App{
                         if (contador == 0) {
                             resultado = "Register";      
                             estado = "Register UA1"; 
-                            document.getElementById("marcadores").innerHTML = resultado;
                         }
                         box.material.color.set(0xffffff);
                         box1.material.color.set(0xffffff);
