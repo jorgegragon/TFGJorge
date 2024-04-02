@@ -12,12 +12,36 @@ const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.
 const att_ua1= new THREE.TextureLoader().load( '../Imagenes/parametros/attua1.png' );
 const att_ua2 = new THREE.TextureLoader().load( '../Imagenes/parametros/attua2.png' );
 const att_proxy = new THREE.TextureLoader().load( '../Imagenes/parametros/attproxy.png' );
-        
+
+const register_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/Register1.png' );
+const register_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/Register2.png' );
+const unauthorized = new THREE.TextureLoader().load( '../Imagenes/paquetes/401unauthorized.png' );
+const ok_proxy_reg_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okproxyua1.png' );
+const ok_proxy_reg_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okproxyua2.png' );
+const invite_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/invite+sdpua1.png' );
+const invite_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/invite+sdpua2.png' );
+const trying_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/tryingua1.png' );
+const trying_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/tryingua2.png' );
+const ringing_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ringingua1.png' );
+const ringing_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ringingua2.png' );
+const ok_status_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okua1.png' );
+const ok_status_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okua2.png' );
+const ack_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ackua1.png' );
+const ack_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/ackua2.png' );
+const rtp = new THREE.TextureLoader().load( '../Imagenes/paquetes/rtp.png' );
+const bye_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/byeua1.png' );
+const bye_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/byeua2.png' );
+const ok_bye_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okbyeua1.png' );
+const ok_bye_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/200okbyeua2.png' );
+
+
 // Secuencia
 let start = false;
 let estado;
 let resultado = "Inicio";
 let contador = 0;
+var stepX = 0.08;
+var stepZ = -0.16;
 
 let wall1;
 let sphere;
@@ -298,6 +322,7 @@ class App{
                             box2.material.color.set(0xffffff);
                             wall1.material.map = att_ua1;
                         }
+                        start = false;
                         break;
                     case "UA2":
                         if (intersect.object.material.color.getHex() === 0xff0000) {
@@ -309,6 +334,7 @@ class App{
                             box1.material.color.set(0xffffff);
                             wall1.material.map = att_ua2;
                         }
+                        start = false;
                         break;
                     case "proxy":
                         if (intersect.object.material.color.getHex() === 0xff0000) {
@@ -320,6 +346,7 @@ class App{
                             box2.material.color.set(0xffffff);
                             wall1.material.map = att_proxy;
                         }
+                        start = false;
                         break;
                     case "paredInicio":
                         start = true;
@@ -332,6 +359,74 @@ class App{
                         box.material.color.set(0xffffff);
                         box1.material.color.set(0xffffff);
                         box2.material.color.set(0xffffff);
+                        break;
+                    case "sphere":
+                        intersect.object.geometry = new THREE.SphereGeometry(0.5, 32, 20, 0, 5.8, 0, Math.PI);
+                        start = false;
+                        switch (estado) {
+                            case "Register UA1":
+                                wall1.material.map = register_ua1;
+                                break;
+                            case "Register UA2":
+                                wall1.material.map = register_ua2;
+                                break;
+                            case "Unauthorized":
+                                wall1.material.map = unauthorized;
+                                break;
+                            case "200 OK Register UA1":
+                                wall1.material.map = ok_proxy_reg_ua1;
+                                break;
+                            case "OK Register Proxy-UA2":
+                                wall1.material.map = ok_proxy_reg_ua2;
+                                break;
+                            case "INVITE UA1":
+                                wall1.material.map = invite_ua1;
+                                break;
+                            case "INVITE Proxy-UA2":
+                                wall1.material.map = invite_ua2;
+                                break;
+                            case "Trying UA1":
+                                wall1.material.map = trying_ua1;
+                                break;
+                            case "Trying UA2":
+                                wall1.material.map = trying_ua2;
+                                break;
+                            case "Ringing UA1":
+                                wall1.material.map = ringing_ua1;
+                                break;
+                            case "Ringing UA2":
+                                wall1.material.map = ringing_ua2;
+                                break;
+                            case "OK STATUS UA1":
+                                wall1.material.map = ok_status_ua1;
+                                break;
+                            case "OK STATUS UA2":
+                                wall1.material.map = ok_status_ua2;
+                                break;
+                            case "ACK UA1":
+                                wall1.material.map = ack_ua1;
+                                break;
+                            case "ACK UA2":
+                                wall1.material.map = ack_ua2;
+                                break;
+                            case "RTP":
+                                wall1.material.map = rtp;
+                                break;
+                            case "BYE UA1":
+                                wall1.material.map = bye_ua1;
+                                break;
+                            case "BYE UA2":
+                                wall1.material.map = bye_ua2;
+                                break;
+                            case "OK BYE UA1":
+                                wall1.material.map = ok_bye_ua1;
+                                break;
+                            case "OK BYE UA2":
+                                wall1.material.map = ok_bye_ua2;
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     default:
                         break;
@@ -352,7 +447,177 @@ class App{
         if (this.controllerLeft || this.controllerRight ) {
             this.handleController(this.controllerLeft, this.controllerRight, dt);
         }
+        if (start){
+            this.animacion(sphere);
+        }
         this.renderer.render( this.scene, this.camera );
+    }
+
+    animacion(sphere){
+        if (sphere.position.z < -1){ // Proxy
+            if (contador == 0 || contador == 2 || contador == 10 || contador == 19){
+                sphere.position.set (0, 0.3, -1);
+                stepX = -0.05;
+                stepZ = 0.1;
+                switch (contador) {
+                    case 0:
+                        resultado = ("401 Unauthorized");
+                        estado = ("Unauthorized");
+                        sphere.material.color = new THREE.Color("red");
+                        break;
+                    case 2:
+                        resultado = ("200 OK");
+                        estado = ("200 OK Register UA1");
+                        break;
+                    case 10:
+                        resultado = ("100 Trying");
+                        estado = ("Trying UA1");
+                        sphere.material.color = new THREE.Color("green");
+                        break;
+                    case 19:
+                        resultado = ("200 OK");
+                        sphere.material.color = new THREE.Color("maroon");
+                        estado = ("OK BYE UA1");
+                        break;
+                    default:
+                        break;
+                }
+                
+            }else if (contador == 4 || contador == 6 || contador == 14 || contador == 17) {
+                sphere.position.set (0, 0.3, -1);
+                stepX = 0.05;
+                stepZ = 0.1;
+                switch (contador) {
+                    case 4:
+                        resultado = ("200 OK");
+                        estado = ("OK Register Proxy-UA2");
+                        sphere.material.color = new THREE.Color("red");
+                        break;
+                    case 6:
+                        resultado = ("INVITE + SDP");
+                        estado = ("INVITE Proxy-UA2");
+                        sphere.material.color = new THREE.Color("green");   
+                        break;
+                    case 14:
+                        resultado = ("ACK");
+                        estado = ("ACK UA2");
+                        sphere.material.color = new THREE.Color("green");
+                        break;
+                    case 17:
+                        resultado = ("BYE");
+                        estado = ("BYE UA2");
+                        sphere.material.color = new THREE.Color("maroon");
+                        break;
+                    default:
+                        break;
+                }
+            }else if (contador == 8 || contador == 9) {
+                sphere.position.set (1, 0.3, 1);
+                stepX = -0.05;
+                stepZ = -0.1;
+                sphere.material.color = new THREE.Color("green");
+                if (contador == 8) {
+                    resultado = ("180 Ringing");
+                    estado = ("Ringing UA2");
+                }else{
+                    resultado = ("200 OK + SDP");
+                    estado = ("OK STATUS UA2");
+                }
+            }
+            contador++;
+        }
+
+        if (sphere.position.z > 1 & sphere.position.x < -1){ // Cliente
+            if (contador == 3){
+                sphere.position.set (1, 0.3, 1);
+                stepX = -0.05;
+                stepZ = -0.1;
+                resultado = ("Register");
+                estado = ("Register UA2");
+                sphere.material.color = new THREE.Color("red");
+                
+            }else if (contador == 11 || contador == 12) {
+                sphere.position.set (0, 0.3, -1);
+                stepX = -0.05;
+                stepZ = 0.1;
+                if (contador == 11) {
+                    resultado = ("180 Ringing");
+                    estado = ("Ringing UA1");
+                }else{
+                    resultado = ("200 OK + SDP");
+                    estado = ("OK STATUS UA1");
+                }
+                sphere.material.color = new THREE.Color("green");
+
+            }else if (contador == 20) {
+                contador = 0;
+                start = false;
+                resultado = ("Intercambio de paquetes");
+                sphere.material.color = new THREE.Color("red");
+
+            }else{
+                sphere.position.set (-1, 0.3, 1);
+                stepX = 0.05;
+                stepZ = -0.1;
+                
+                if (contador == 1) {
+                    resultado = ("Register");
+                    estado = ("Register UA1");
+                    sphere.material.color = new THREE.Color("red");
+                }else if (contador == 13) {
+                    resultado = ("ACK");
+                    estado = ("ACK UA1");
+                    sphere.material.color = new THREE.Color("green");
+                }
+            }
+            contador++;
+        }
+
+        if (sphere.position.z > 1 & sphere.position.x > 1){ // Servidor
+            if (contador == 7 || contador == 18) { // Servidor-Proxy
+                stepX = -0.05;
+                stepZ = -0.1;
+                sphere.position.set (1, 0.3, 1);
+                if (contador == 7) {
+                    resultado = ("100 Trying");
+                    estado = ("Trying UA2");
+                    sphere.material.color = new THREE.Color("green");
+                }else{
+                    resultado = ("200 OK");
+                    estado = ("OK BYE UA2");
+                    sphere.material.color = new THREE.Color("maroon");
+                }
+
+            } else if (contador == 5) { // Cliente-Servidor
+                stepX = 0.05;
+                stepZ = -0.1;
+                sphere.position.set (-1, 0.3, 1);
+                resultado = ("INVITE + SDP");
+                estado = ("INVITE UA1");
+                sphere.material.color = new THREE.Color("green");
+                
+            } else if (contador == 15) {
+                sphere.position.set (1, 0.3, 1);
+                stepX = -0.025;
+                stepZ = 0;
+                resultado = ("RTP");
+                estado = ("RTP");
+                sphere.material.color = new THREE.Color("blue");    
+            }
+            contador++;   
+        }
+
+        if (sphere.position.x < -1 && contador == 16){
+            stepX = 0.05;
+            stepZ = -0.1;
+            sphere.position.set (-1, 0.3, 1);
+            resultado = ("BYE");
+            estado = ("BYE UA1");
+            sphere.material.color = new THREE.Color("maroon");
+            contador++;
+        }
+        sphere.position.x += stepX;
+        sphere.position.z += stepZ;
     }
 }
 
