@@ -351,7 +351,7 @@ class App{
                     case "paredInicio":
                         start = true;
                         wall1.material.map = pared;
-                        sphere.geometry = new THREE.SphereGeometry(0.5, 32, 20, 0, Math.PI*2, 0, Math.PI);
+                        sphere.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
                         if (contador == 0) {
                             resultado = "Register";      
                             estado = "Register UA1"; 
@@ -361,7 +361,7 @@ class App{
                         box2.material.color.set(0xffffff);
                         break;
                     case "sphere":
-                        intersect.object.geometry = new THREE.SphereGeometry(0.5, 32, 20, 0, 5.8, 0, Math.PI);
+                        intersect.object.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, 5.8, 0, Math.PI);
                         start = false;
                         switch (estado) {
                             case "Register UA1":
