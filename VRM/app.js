@@ -8,8 +8,8 @@ import { getSphere, getSide, getBox, getWall, getLogo, getFloor } from './js/sce
 const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
 const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
 const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
-const logoStart = new THREE.TextureLoader().load( '../Imagenes/textures/start.png' );
-const logoStop = new THREE.TextureLoader().load( '../Imagenes/textures/stop.png' );
+const logoStart = new THREE.TextureLoader().load( '../Imagenes/parametros/start.png' );
+const logoStop = new THREE.TextureLoader().load( '../Imagenes/parametros/stop.png' );
 
 const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.png' );
 const att_ua1= new THREE.TextureLoader().load( '../Imagenes/parametros/attua1.png' );
