@@ -567,6 +567,7 @@ class App{
                 start = false;
                 resultado = ("Intercambio de paquetes");
                 sphere.material.color = new THREE.Color("red");
+                wallLogo.material.map = logoStart;
 
             }else{
                 sphere.position.set (-1, 0.3, 1);
