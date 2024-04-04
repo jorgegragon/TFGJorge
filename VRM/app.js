@@ -450,6 +450,7 @@ class App{
         if (start){
             this.animacion(sphere);
         }
+        console.log(sphere.position);
         this.renderer.render( this.scene, this.camera );
     }
 
