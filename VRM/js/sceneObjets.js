@@ -38,7 +38,7 @@ export function getWall(texture) {
 }
 
 export function getLogo(texture) {
-    const geometry = new THREE.PlaneGeometry(0.8, 1.3);
+    const geometry = new THREE.PlaneGeometry(1.3, 0.8);
     const material = new THREE.MeshBasicMaterial({ map: texture });
     return new THREE.Mesh(geometry, material);
 }
