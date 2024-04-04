@@ -455,7 +455,7 @@ class App{
     }
 
     animacion(sphere){
-        if (sphere.position.z < -0.9){ // Proxy
+        if (sphere.position.z < -1){ // Proxy
             if (contador == 0 || contador == 2 || contador == 10 || contador == 19){
                 sphere.position.set (0, 0.3, -1);
                 stepX = -0.025;
@@ -528,7 +528,7 @@ class App{
             contador++;
         }
 
-        if (sphere.position.z > 0.9 & sphere.position.x < -0.9){ // Cliente
+        if (sphere.position.z > 1 & sphere.position.x < -0.5){ // Cliente
             if (contador == 3){
                 sphere.position.set (1, 0.3, 1);
                 stepX = -0.025;
@@ -574,7 +574,7 @@ class App{
             contador++;
         }
 
-        if (sphere.position.z > 0.9 & sphere.position.x > 0.9){ // Servidor
+        if (sphere.position.z > 1 & sphere.position.x > 0.5){ // Servidor
             if (contador == 7 || contador == 18) { // Servidor-Proxy
                 stepX = -0.025;
                 stepZ = -0.05;
