@@ -330,6 +330,7 @@ class App{
                             box2.material.color.set(0xffffff);
                             wall1.material.map = att_ua1;
                         }
+                        wallLogo.material.map = logoStart;
                         start = false;
                         break;
                     case "UA2":
@@ -343,6 +344,7 @@ class App{
                             wall1.material.map = att_ua2;
                         }
                         start = false;
+                        wallLogo.material.map = logoStart;
                         break;
                     case "proxy":
                         if (intersect.object.material.color.getHex() === 0xff0000) {
@@ -355,9 +357,11 @@ class App{
                             wall1.material.map = att_proxy;
                         }
                         start = false;
+                        wallLogo.material.map = logoStart;
                         break;
                     case "estadoInicio":
                         start = true;
+                        wallLogo.material.map = logoStop;
                         wall1.material.map = pared;
                         sphere.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
                         if (contador == 0) {
@@ -371,6 +375,7 @@ class App{
                     case "sphere":
                         intersect.object.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, 5.8, 0, Math.PI);
                         start = false;
+                        wallLogo.material.map = logoStart;
                         switch (estado) {
                             case "Register UA1":
                                 wall1.material.map = register_ua1;
@@ -458,7 +463,6 @@ class App{
         if (start){
             this.animacion(sphere);
         }
-        console.log(sphere.position);
         this.renderer.render( this.scene, this.camera );
     }
 
