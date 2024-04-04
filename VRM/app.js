@@ -3,11 +3,14 @@ import { VRButton } from '../jsm/webxr/VRButton.js';
 import { XRControllerModelFactory } from '../jsm/webxr/XRControllerModelFactory.js';
 import { Stats } from '../jsm/libs/stats.module.js';
 import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { getSphere, getSide, getBox, getWall, getFloor } from './js/sceneObjets.js';
+import { getSphere, getSide, getBox, getWall, getLogo, getFloor } from './js/sceneObjets.js';
 
 const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
 const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
 const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
+const logoStart = new THREE.TextureLoader().load( '../Imagenes/textures/start.png' );
+const logoStop = new THREE.TextureLoader().load( '../Imagenes/textures/stop.png' );
+
 const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.png' );
 const att_ua1= new THREE.TextureLoader().load( '../Imagenes/parametros/attua1.png' );
 const att_ua2 = new THREE.TextureLoader().load( '../Imagenes/parametros/attua2.png' );
@@ -44,6 +47,7 @@ var stepX = 0.08;
 var stepZ = -0.16;
 
 let wall1;
+let wallLogo;
 let sphere;
 let box;
 let box1;
@@ -118,8 +122,12 @@ class App{
         // Pared
         wall1 = getWall(pared);
         wall1.position.set( 0, 4, -4.5);
-        wall1.name = "paredInicio";
         this.scene.add( wall1 );
+
+        wallLogo = getLogo(logoStart);
+        wallLogo.position.set( 0, 1, -4.5);
+        wallLogo.name = "estadoInicio";
+        this.scene.add( wallLogo );
 
         side1 = getSide(muro);
         side1.position.set (5, 4, 0);
@@ -348,7 +356,7 @@ class App{
                         }
                         start = false;
                         break;
-                    case "paredInicio":
+                    case "estadoInicio":
                         start = true;
                         wall1.material.map = pared;
                         sphere.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
