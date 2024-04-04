@@ -43,8 +43,8 @@ let start = false;
 let estado;
 let resultado = "Inicio";
 let contador = 0;
-var stepX = 0.08;
-var stepZ = -0.16;
+let stepX = 0.08;
+let stepZ = -0.16;
 
 let wall1;
 let wallLogo;
