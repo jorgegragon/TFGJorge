@@ -464,7 +464,9 @@ class App{
         const dt = this.clock.getDelta();
         this.stats.update();
         if (this.controllerLeft || this.controllerRight ) {
-            this.handleController(this.controllerLeft, this.controllerRight, dt);
+            setTimeout(() => {
+                this.handleController(this.controllerLeft, this.controllerRight, dt);
+            }, 2000);
         }
         if (start){
             this.animacion(sphere);
