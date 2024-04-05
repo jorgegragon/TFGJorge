@@ -360,14 +360,17 @@ class App{
                         wallLogo.material.map = logoStart;
                         break;
                     case "estadoInicio":
+                        if (contador == 0) {
                         start = true;
                         wallLogo.material.map = logoStop;
-                        wall1.material.map = pared;
-                        sphere.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
-                        if (contador == 0) {
-                            resultado = "Register";      
-                            estado = "Register UA1"; 
+                        sphere.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);                       
+                        resultado = "Register";      
+                        estado = "Register UA1"; 
+                        }else{
+                            start = false;
+                            wallLogo.material.map = logoStart;
                         }
+                        wall1.material.map = pared;
                         box.material.color.set(0xffffff);
                         box1.material.color.set(0xffffff);
                         box2.material.color.set(0xffffff);
