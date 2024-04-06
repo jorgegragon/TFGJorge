@@ -471,7 +471,7 @@ class App{
                 //    this.handleController(this.controllerLeft, this.controllerRight, dt);
                     handleControllerTimeout = null; // Reiniciar la bandera después de ejecutar handleController()
                 //}, 2000);
-                this.controllerLeft.addEventListener('selectstart', () => {
+                this.controllerRight.addEventListener('selectstart', () => {
                     this.handleController(this.controllerLeft, this.controllerRight, dt);
                 });
             //}
