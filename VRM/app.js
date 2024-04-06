@@ -46,6 +46,8 @@ let contador = 0;
 let stepX = 0.08;
 let stepZ = -0.16;
 
+let handleControllerTimeout = null;
+
 let wall1;
 let wallLogo;
 let sphere;
@@ -463,10 +465,13 @@ class App{
 	render( ) {  
         const dt = this.clock.getDelta();
         this.stats.update();
-        if (this.controllerLeft || this.controllerRight ) {
-            setTimeout(() => {
-                this.handleController(this.controllerLeft, this.controllerRight, dt);
-            }, 2000);
+        if (this.controllerLeft || this.controllerRight) {
+            if (!handleControllerTimeout) {
+                handleControllerTimeout = setTimeout(() => {
+                    this.handleController(this.controllerLeft, this.controllerRight, dt);
+                    handleControllerTimeout = null; // Reiniciar la bandera después de ejecutar handleController()
+                }, 2000);
+            }
         }
         if (start){
             this.animacion(sphere);
