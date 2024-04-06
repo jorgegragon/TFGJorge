@@ -467,10 +467,13 @@ class App{
         this.stats.update();
         if (this.controllerLeft || this.controllerRight) {
             if (!handleControllerTimeout) {
-                handleControllerTimeout = setTimeout(() => {
-                    this.handleController(this.controllerLeft, this.controllerRight, dt);
+                //handleControllerTimeout = setTimeout(() => {
+                //    this.handleController(this.controllerLeft, this.controllerRight, dt);
                     handleControllerTimeout = null; // Reiniciar la bandera después de ejecutar handleController()
-                }, 2000);
+                //}, 2000);
+                this.controllerLeft.addEventListener('selectstart', () => {
+                    this.handleController(this.controllerLeft, this.controllerRight, dt);
+                });
             }
         }
         if (start){
