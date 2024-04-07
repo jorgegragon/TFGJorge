@@ -309,7 +309,7 @@ class App{
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
         }
-        
+        console.log (controllerRight.userData.isSelecting);
         if (controllerRight.userData.isSelecting ){
             this.raycaster.ray.origin.setFromMatrixPosition(controllerRight.matrixWorld);
         
