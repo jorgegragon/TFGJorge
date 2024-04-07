@@ -196,12 +196,13 @@ class App{
         function onSelectStart() {
             
             this.userData.selectPressed = true;
+            this.userData.isSelecting = true;
         }
 
         function onSelectEnd() {
 
             this.userData.selectPressed = false;
-            
+            this.userData.isSelecting = false;
         }
 
         // LINEAS "GUIA" CONTROLADORES
