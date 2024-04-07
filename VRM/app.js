@@ -298,7 +298,7 @@ class App{
 
     }
 
-    handleController( controllerLeft, controllerRight, dt ){
+    handleControllerLeft( controllerLeft, dt ){
         if (controllerLeft.userData.selectPressed ){
             const speed = 1;
             const quaternion = this.dolly.quaternion.clone();
@@ -309,151 +309,151 @@ class App{
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
         }
-
-        if (controllerRight.userData.selectPressed ){
-            this.raycaster.ray.origin.setFromMatrixPosition(controllerRight.matrixWorld);
-        
-            const controllerRightDirection = new THREE.Vector3();
-            controllerRight.getWorldDirection(controllerRightDirection);
-            const invertedDirection = controllerRightDirection.clone().multiplyScalar(-1);
-            this.raycaster.ray.direction.copy(invertedDirection);
-        
-            const intersects = this.raycaster.intersectObject(this.scene);
-        
-            for (const intersect of intersects) {
-                switch (intersect.object.name) {
-                    case "UA1":
-                        if (intersect.object.material.color.getHex() === 0xff0000) {
-                            intersect.object.material.color.set(0xffffff);
-                            wall1.material.map = pared;
-                        } else {
-                            intersect.object.material.color.set(0xff0000);
-                            box.material.color.set(0xffffff);
-                            box2.material.color.set(0xffffff);
-                            wall1.material.map = att_ua1;
-                        }
-                        wallLogo.material.map = logoStart;
-                        start = false;
-                        break;
-                    case "UA2":
-                        if (intersect.object.material.color.getHex() === 0xff0000) {
-                            intersect.object.material.color.set(0xffffff);
-                            wall1.material.map = pared;
-                        } else {
-                            intersect.object.material.color.set(0xff0000);
-                            box.material.color.set(0xffffff);
-                            box1.material.color.set(0xffffff);
-                            wall1.material.map = att_ua2;
-                        }
-                        start = false;
-                        wallLogo.material.map = logoStart;
-                        break;
-                    case "proxy":
-                        if (intersect.object.material.color.getHex() === 0xff0000) {
-                            intersect.object.material.color.set(0xffffff);
-                            wall1.material.map = pared;
-                        } else {
-                            intersect.object.material.color.set(0xff0000);
-                            box1.material.color.set(0xffffff);
-                            box2.material.color.set(0xffffff);
-                            wall1.material.map = att_proxy;
-                        }
-                        start = false;
-                        wallLogo.material.map = logoStart;
-                        break;
-                    case "estadoInicio":
-                        if (contador == 0 && wallLogo.material.map === logoStart) {
-                            start = true;
-                            wallLogo.material.map = logoStop;
-                            sphere.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);                       
-                            resultado = "Register";      
-                            estado = "Register UA1"; 
-                        }else if (contador != 0 && wallLogo.material.map === logoStart){
-                            start = true;
-                            wallLogo.material.map = logoStop;
-                        }else{
-                            start = false;
-                            wallLogo.material.map = logoStart;
-                        }
+    }
+    handleControllerRight( controllerRight ){
+        this.raycaster.ray.origin.setFromMatrixPosition(controllerRight.matrixWorld);
+    
+        const controllerRightDirection = new THREE.Vector3();
+        controllerRight.getWorldDirection(controllerRightDirection);
+        const invertedDirection = controllerRightDirection.clone().multiplyScalar(-1);
+        this.raycaster.ray.direction.copy(invertedDirection);
+    
+        const intersects = this.raycaster.intersectObject(this.scene);
+    
+        for (const intersect of intersects) {
+            switch (intersect.object.name) {
+                case "UA1":
+                    if (intersect.object.material.color.getHex() === 0xff0000) {
+                        intersect.object.material.color.set(0xffffff);
                         wall1.material.map = pared;
+                    } else {
+                        intersect.object.material.color.set(0xff0000);
+                        box.material.color.set(0xffffff);
+                        box2.material.color.set(0xffffff);
+                        wall1.material.map = att_ua1;
+                    }
+                    wallLogo.material.map = logoStart;
+                    start = false;
+                    break;
+                case "UA2":
+                    if (intersect.object.material.color.getHex() === 0xff0000) {
+                        intersect.object.material.color.set(0xffffff);
+                        wall1.material.map = pared;
+                    } else {
+                        intersect.object.material.color.set(0xff0000);
                         box.material.color.set(0xffffff);
                         box1.material.color.set(0xffffff);
+                        wall1.material.map = att_ua2;
+                    }
+                    start = false;
+                    wallLogo.material.map = logoStart;
+                    break;
+                case "proxy":
+                    if (intersect.object.material.color.getHex() === 0xff0000) {
+                        intersect.object.material.color.set(0xffffff);
+                        wall1.material.map = pared;
+                    } else {
+                        intersect.object.material.color.set(0xff0000);
+                        box1.material.color.set(0xffffff);
                         box2.material.color.set(0xffffff);
-                        break;
-                    case "sphere":
-                        intersect.object.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, 5.8, 0, Math.PI);
+                        wall1.material.map = att_proxy;
+                    }
+                    start = false;
+                    wallLogo.material.map = logoStart;
+                    break;
+                case "estadoInicio":
+                    if (contador == 0 && wallLogo.material.map === logoStart) {
+                        start = true;
+                        wallLogo.material.map = logoStop;
+                        sphere.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);                       
+                        resultado = "Register";      
+                        estado = "Register UA1"; 
+                    }else if (contador != 0 && wallLogo.material.map === logoStart){
+                        start = true;
+                        wallLogo.material.map = logoStop;
+                    }else{
                         start = false;
                         wallLogo.material.map = logoStart;
-                        switch (estado) {
-                            case "Register UA1":
-                                wall1.material.map = register_ua1;
-                                break;
-                            case "Register UA2":
-                                wall1.material.map = register_ua2;
-                                break;
-                            case "Unauthorized":
-                                wall1.material.map = unauthorized;
-                                break;
-                            case "200 OK Register UA1":
-                                wall1.material.map = ok_proxy_reg_ua1;
-                                break;
-                            case "OK Register Proxy-UA2":
-                                wall1.material.map = ok_proxy_reg_ua2;
-                                break;
-                            case "INVITE UA1":
-                                wall1.material.map = invite_ua1;
-                                break;
-                            case "INVITE Proxy-UA2":
-                                wall1.material.map = invite_ua2;
-                                break;
-                            case "Trying UA1":
-                                wall1.material.map = trying_ua1;
-                                break;
-                            case "Trying UA2":
-                                wall1.material.map = trying_ua2;
-                                break;
-                            case "Ringing UA1":
-                                wall1.material.map = ringing_ua1;
-                                break;
-                            case "Ringing UA2":
-                                wall1.material.map = ringing_ua2;
-                                break;
-                            case "OK STATUS UA1":
-                                wall1.material.map = ok_status_ua1;
-                                break;
-                            case "OK STATUS UA2":
-                                wall1.material.map = ok_status_ua2;
-                                break;
-                            case "ACK UA1":
-                                wall1.material.map = ack_ua1;
-                                break;
-                            case "ACK UA2":
-                                wall1.material.map = ack_ua2;
-                                break;
-                            case "RTP":
-                                wall1.material.map = rtp;
-                                break;
-                            case "BYE UA1":
-                                wall1.material.map = bye_ua1;
-                                break;
-                            case "BYE UA2":
-                                wall1.material.map = bye_ua2;
-                                break;
-                            case "OK BYE UA1":
-                                wall1.material.map = ok_bye_ua1;
-                                break;
-                            case "OK BYE UA2":
-                                wall1.material.map = ok_bye_ua2;
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                    }
+                    wall1.material.map = pared;
+                    box.material.color.set(0xffffff);
+                    box1.material.color.set(0xffffff);
+                    box2.material.color.set(0xffffff);
+                    break;
+                case "sphere":
+                    intersect.object.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, 5.8, 0, Math.PI);
+                    start = false;
+                    wallLogo.material.map = logoStart;
+                    switch (estado) {
+                        case "Register UA1":
+                            wall1.material.map = register_ua1;
+                            break;
+                        case "Register UA2":
+                            wall1.material.map = register_ua2;
+                            break;
+                        case "Unauthorized":
+                            wall1.material.map = unauthorized;
+                            break;
+                        case "200 OK Register UA1":
+                            wall1.material.map = ok_proxy_reg_ua1;
+                            break;
+                        case "OK Register Proxy-UA2":
+                            wall1.material.map = ok_proxy_reg_ua2;
+                            break;
+                        case "INVITE UA1":
+                            wall1.material.map = invite_ua1;
+                            break;
+                        case "INVITE Proxy-UA2":
+                            wall1.material.map = invite_ua2;
+                            break;
+                        case "Trying UA1":
+                            wall1.material.map = trying_ua1;
+                            break;
+                        case "Trying UA2":
+                            wall1.material.map = trying_ua2;
+                            break;
+                        case "Ringing UA1":
+                            wall1.material.map = ringing_ua1;
+                            break;
+                        case "Ringing UA2":
+                            wall1.material.map = ringing_ua2;
+                            break;
+                        case "OK STATUS UA1":
+                            wall1.material.map = ok_status_ua1;
+                            break;
+                        case "OK STATUS UA2":
+                            wall1.material.map = ok_status_ua2;
+                            break;
+                        case "ACK UA1":
+                            wall1.material.map = ack_ua1;
+                            break;
+                        case "ACK UA2":
+                            wall1.material.map = ack_ua2;
+                            break;
+                        case "RTP":
+                            wall1.material.map = rtp;
+                            break;
+                        case "BYE UA1":
+                            wall1.material.map = bye_ua1;
+                            break;
+                        case "BYE UA2":
+                            wall1.material.map = bye_ua2;
+                            break;
+                        case "OK BYE UA1":
+                            wall1.material.map = ok_bye_ua1;
+                            break;
+                        case "OK BYE UA2":
+                            wall1.material.map = ok_bye_ua2;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
+        
     }
     
     resize(){
@@ -466,15 +466,10 @@ class App{
         const dt = this.clock.getDelta();
         this.stats.update();
         if (this.controllerLeft || this.controllerRight) {
-            //if (!handleControllerTimeout) {
-                //handleControllerTimeout = setTimeout(() => {
-                //    this.handleController(this.controllerLeft, this.controllerRight, dt);
-                    handleControllerTimeout = null; // Reiniciar la bandera después de ejecutar handleController()
-                //}, 2000);
-                this.controllerRight.addEventListener('selectstart', () => {
-                    this.handleController(this.controllerLeft, this.controllerRight, dt);
-                });
-            //}
+            this.handleControllerLeft(this.controllerLeft, dt);
+            this.controllerRight.addEventListener('selectstart', () => {
+                this.handleControllerRight(this.controllerRight);
+            });
         }
         if (start){
             this.animacion(sphere);
