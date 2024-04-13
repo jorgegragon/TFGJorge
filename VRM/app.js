@@ -47,6 +47,7 @@ let stepX = 0.08;
 let stepZ = -0.16;
 
 let handleControllerTimeout = null;
+let controlEventoPulsacion= false;
 
 let wall1;
 let wallLogo;
@@ -198,6 +199,7 @@ class App{
             this.userData.selectPressed = true;
             this.userData.isSelecting = true;
             console.log ("PASAMOS");
+            controlEventoPulsacion = true;
         }
 
         function onSelectEnd() {
@@ -312,7 +314,8 @@ class App{
             this.dolly.quaternion.copy(quaternion);
         }
         console.log (controllerRight.userData.isSelecting);
-        if (controllerRight.userData.isSelecting ){
+        if (controllerRight.userData.isSelecting && controlEventoPulsacion){
+            controlEventoPulsacion = false;
             this.raycaster.ray.origin.setFromMatrixPosition(controllerRight.matrixWorld);
         
             const controllerRightDirection = new THREE.Vector3();
