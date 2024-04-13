@@ -198,7 +198,6 @@ class App{
             
             this.userData.selectPressed = true;
             this.userData.isSelecting = true;
-            console.log ("PASAMOS");
             controlEventoPulsacion = true;
         }
 
@@ -313,7 +312,7 @@ class App{
             this.dolly.position.y = 0;
             this.dolly.quaternion.copy(quaternion);
         }
-        console.log (controllerRight.userData.isSelecting);
+
         if (controllerRight.userData.isSelecting && controlEventoPulsacion){
             controlEventoPulsacion = false;
             this.raycaster.ray.origin.setFromMatrixPosition(controllerRight.matrixWorld);
@@ -472,9 +471,6 @@ class App{
         this.stats.update();
         if (this.controllerLeft || this.controllerRight) {
             this.handleController(this.controllerLeft, this.controllerRight, dt);
-            //this.controllerRight.addEventListener('selectstart', () => {
-            //    this.handleControllerRight(this.controllerRight);
-            //});
         }
         if (start){
             this.animacion(sphere);
