@@ -197,6 +197,7 @@ class App{
             
             this.userData.selectPressed = true;
             this.userData.isSelecting = true;
+            console.log ("PASAMOS");
         }
 
         function onSelectEnd() {
