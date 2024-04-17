@@ -47,7 +47,6 @@ let contador = 0;
 let stepX = 0.08;
 let stepZ = -0.16;
 
-let handleControllerTimeout = null;
 let controlEventoPulsacion= false;
 
 let wall1;
@@ -60,6 +59,7 @@ let side1;
 let side2;
 let side3;
 let side4;
+let sphereRTP1, sphereRTP2, sphereRTP3, sphereRTP4, sphereRTP5;
 
 class App{
 	constructor(){
@@ -625,13 +625,33 @@ class App{
                 
             } else if (contador == 15) {
                 sphere.position.set (1, 0.3, 1);
-                stepX = -0.006;
+                stepX = -0.005;
                 stepZ = 0;
                 resultado = ("RTP");
                 estado = ("RTP");
                 sphere.material.color = new THREE.Color("blue");
+                
                 // Sincronizar Paquetes adicionales
-                  
+                sphereRTP1.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+                sphereRTP1.material.color = new THREE.Color("blue");
+                sphereRTP1.position.x += -0.006;
+
+                sphereRTP2.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+                sphereRTP2.material.color = new THREE.Color("blue");
+                sphereRTP2.position.x += -0.0058;
+
+                sphereRTP3.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+                sphereRTP3.material.color = new THREE.Color("blue");
+                sphereRTP3.position.x += -0.0056;
+
+                sphereRTP4.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+                sphereRTP4.material.color = new THREE.Color("blue");
+                sphereRTP4.position.x += -0.0054;
+
+                sphereRTP5.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+                sphereRTP5.material.color = new THREE.Color("blue");
+                sphereRTP5.position.x += -0.0052;
+
             }
             contador++;   
         }
@@ -645,6 +665,23 @@ class App{
             sphere.material.color = new THREE.Color("maroon");
             contador++;
         }
+
+        if (sphereRTP1.position.x < -1){
+            sphereRTP1.scale.set(0, 0, 0);
+        }
+        if (sphereRTP2.position.x < -1){
+            sphereRTP2.scale.set(0, 0, 0);
+        }
+        if (sphereRTP3.position.x < -1){
+            sphereRTP3.scale.set(0, 0, 0);
+        }
+        if (sphereRTP4.position.x < -1){
+            sphereRTP4.scale.set(0, 0, 0);
+        }
+        if (sphereRTP5.position.x < -1){
+            sphereRTP5.scale.set(0, 0, 0);
+        }
+
         sphere.position.x += stepX;
         sphere.position.z += stepZ;
     }
