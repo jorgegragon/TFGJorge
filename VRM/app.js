@@ -6,6 +6,7 @@ import { OrbitControls } from '../jsm/controls/OrbitControls.js';
 import { getSphere, getSide, getBox, getWall, getLogo, getFloor } from './js/sceneObjets.js';
 
 const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
+const texture_proxy = new THREE.TextureLoader().load( '../Imagenes/textures/textura_proxy.gif' );
 const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
 const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
 const logoStart = new THREE.TextureLoader().load( '../Imagenes/parametros/start.png' );
@@ -154,7 +155,7 @@ class App{
         side4.rotateX (Math.PI / 2);
         this.scene.add( side4 );
 
-        box = getBox(texture);
+        box = getBox(texture_proxy);
         box.position.set (0, 0.3, -1);
         box.rotateX (Math.PI / 2);
         box.name = "proxy";
