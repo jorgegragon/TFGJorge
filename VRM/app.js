@@ -667,20 +667,22 @@ class App{
             contador++;
         }
 
-        if (sphereRTP1.position.x < -1){
-            sphereRTP1.scale.set(0, 0, 0);
-        }
-        if (sphereRTP2.position.x < -1){
-            sphereRTP2.scale.set(0, 0, 0);
-        }
-        if (sphereRTP3.position.x < -1){
-            sphereRTP3.scale.set(0, 0, 0);
-        }
-        if (sphereRTP4.position.x < -1){
-            sphereRTP4.scale.set(0, 0, 0);
-        }
-        if (sphereRTP5.position.x < -1){
-            sphereRTP5.scale.set(0, 0, 0);
+        if (contador >= 16){
+            if (sphereRTP1.position.x < -1){
+                sphereRTP1.scale.set(0, 0, 0);
+            }
+            if (sphereRTP2.position.x < -1){
+                sphereRTP2.scale.set(0, 0, 0);
+            }
+            if (sphereRTP3.position.x < -1){
+                sphereRTP3.scale.set(0, 0, 0);
+            }
+            if (sphereRTP4.position.x < -1){
+                sphereRTP4.scale.set(0, 0, 0);
+            }
+            if (sphereRTP5.position.x < -1){
+                sphereRTP5.scale.set(0, 0, 0);
+            }
         }
 
         sphere.position.x += stepX;
