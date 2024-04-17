@@ -6,7 +6,7 @@ import { OrbitControls } from '../jsm/controls/OrbitControls.js';
 import { getSphere, getSide, getBox, getWall, getLogo, getFloor } from './js/sceneObjets.js';
 
 const texture = new THREE.TextureLoader().load( '../Imagenes/textures/crate.gif' );
-const texture_proxy = new THREE.TextureLoader().load( '../Imagenes/textures/textura_proxy.gif' );
+const texture_proxy = new THREE.TextureLoader().load( '../Imagenes/textures/textura_proxy.jpg' );
 const suelo = new THREE.TextureLoader().load( '../Imagenes/textures/sueloblanco.jpg' );
 const muro = new THREE.TextureLoader().load( '../Imagenes/textures/extura.jpg' );
 const logoStart = new THREE.TextureLoader().load( '../Imagenes/parametros/start.png' );
