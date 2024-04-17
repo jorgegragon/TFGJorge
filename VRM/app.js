@@ -483,8 +483,8 @@ class App{
         if (sphere.position.z < -1){ // Proxy
             if (contador == 0 || contador == 2 || contador == 10 || contador == 19){
                 sphere.position.set (0, 0.3, -1);
-                stepX = -0.025;
-                stepZ = 0.05;
+                stepX = -0.0125;
+                stepZ = 0.025;
                 switch (contador) {
                     case 0:
                         resultado = ("401 Unauthorized");
@@ -511,8 +511,8 @@ class App{
                 
             }else if (contador == 4 || contador == 6 || contador == 14 || contador == 17) {
                 sphere.position.set (0, 0.3, -1);
-                stepX = 0.025;
-                stepZ = 0.05;
+                stepX = 0.0125;
+                stepZ = 0.025;
                 switch (contador) {
                     case 4:
                         resultado = ("200 OK");
@@ -539,8 +539,8 @@ class App{
                 }
             }else if (contador == 8 || contador == 9) {
                 sphere.position.set (1, 0.3, 1);
-                stepX = -0.025;
-                stepZ = -0.05;
+                stepX = -0.0125;
+                stepZ = -0.025;
                 sphere.material.color = new THREE.Color("green");
                 if (contador == 8) {
                     resultado = ("180 Ringing");
@@ -556,16 +556,16 @@ class App{
         if (sphere.position.z > 1 & sphere.position.x < -0.5){ // Cliente
             if (contador == 3){
                 sphere.position.set (1, 0.3, 1);
-                stepX = -0.025;
-                stepZ = -0.05;
+                stepX = -0.0125;
+                stepZ = -0.025;
                 resultado = ("Register");
                 estado = ("Register UA2");
                 sphere.material.color = new THREE.Color("red");
                 
             }else if (contador == 11 || contador == 12) {
                 sphere.position.set (0, 0.3, -1);
-                stepX = -0.025;
-                stepZ = 0.05;
+                stepX = -0.0125;
+                stepZ = 0.025;
                 if (contador == 11) {
                     resultado = ("180 Ringing");
                     estado = ("Ringing UA1");
@@ -584,8 +584,8 @@ class App{
 
             }else{
                 sphere.position.set (-1, 0.3, 1);
-                stepX = 0.025;
-                stepZ = -0.05;
+                stepX = 0.0125;
+                stepZ = -0.025;
                 
                 if (contador == 1) {
                     resultado = ("Register");
@@ -602,8 +602,8 @@ class App{
 
         if (sphere.position.z > 1 & sphere.position.x > 0.5){ // Servidor
             if (contador == 7 || contador == 18) { // Servidor-Proxy
-                stepX = -0.025;
-                stepZ = -0.05;
+                stepX = -0.0125;
+                stepZ = -0.025;
                 sphere.position.set (1, 0.3, 1);
                 if (contador == 7) {
                     resultado = ("100 Trying");
@@ -616,8 +616,8 @@ class App{
                 }
 
             } else if (contador == 5) { // Cliente-Servidor
-                stepX = 0.025;
-                stepZ = -0.05;
+                stepX = 0.0125;
+                stepZ = -0.025;
                 sphere.position.set (-1, 0.3, 1);
                 resultado = ("INVITE + SDP");
                 estado = ("INVITE UA1");
@@ -625,18 +625,20 @@ class App{
                 
             } else if (contador == 15) {
                 sphere.position.set (1, 0.3, 1);
-                stepX = -0.0125;
+                stepX = -0.006;
                 stepZ = 0;
                 resultado = ("RTP");
                 estado = ("RTP");
-                sphere.material.color = new THREE.Color("blue");    
+                sphere.material.color = new THREE.Color("blue");
+                // Sincronizar Paquetes adicionales
+                  
             }
             contador++;   
         }
 
         if (sphere.position.x < -1 && contador == 16){
-            stepX = 0.025;
-            stepZ = -0.05;
+            stepX = 0.0125;
+            stepZ = -0.025;
             sphere.position.set (-1, 0.3, 1);
             resultado = ("BYE");
             estado = ("BYE UA1");
