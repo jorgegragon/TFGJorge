@@ -658,23 +658,18 @@ class App{
                 // Sincronizar Paquetes adicionales
                 sphereRTP1.position.set (1.1, 0.3, 1);
                 sphereRTP1.material.color = new THREE.Color("blue");
-                sphereRTP1.position.x += -0.006;
 
                 sphereRTP2.position.set (1.2, 0.3, 1);
                 sphereRTP2.material.color = new THREE.Color("blue");
-                sphereRTP2.position.x += -0.0058;
 
                 sphereRTP3.position.set (1.3, 0.3, 1);
                 sphereRTP3.material.color = new THREE.Color("blue");
-                sphereRTP3.position.x += -0.0056;
 
                 sphereRTP4.position.set (1.4, 0.3, 1);
                 sphereRTP4.material.color = new THREE.Color("blue");
-                sphereRTP4.position.x += -0.0054;
 
                 sphereRTP5.position.set (1.5, 0.3, 1);
                 sphereRTP5.material.color = new THREE.Color("blue");
-                sphereRTP5.position.x += -0.0052;
 
             }
             contador++;   
@@ -706,6 +701,11 @@ class App{
             if (sphereRTP5.position.x < -1){
                 sphereRTP5.scale.set(0, 0, 0);
             }
+            sphereRTP1.position.x += stepX;
+            sphereRTP2.position.x += stepX;
+            sphereRTP3.position.x += stepX;
+            sphereRTP4.position.x += stepX;
+            sphereRTP5.position.x += stepX;
         }
 
         sphere.position.x += stepX;
