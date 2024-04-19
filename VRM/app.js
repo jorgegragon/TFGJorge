@@ -46,6 +46,7 @@ let resultado = "Inicio";
 let contador = 0;
 let stepX = 0.0125;
 let stepZ = -0.025;
+let stepXRTP = -0.005;
 
 let controlEventoPulsacion= false;
 
@@ -701,11 +702,11 @@ class App{
             if (sphereRTP5.position.x < -1){
                 sphereRTP5.scale.set(0, 0, 0);
             }
-            sphereRTP1.position.x += stepX;
-            sphereRTP2.position.x += stepX;
-            sphereRTP3.position.x += stepX;
-            sphereRTP4.position.x += stepX;
-            sphereRTP5.position.x += stepX;
+            sphereRTP1.position.x += stepXRTP;
+            sphereRTP2.position.x += stepXRTP;
+            sphereRTP3.position.x += stepXRTP;
+            sphereRTP4.position.x += stepXRTP;
+            sphereRTP5.position.x += stepXRTP;
         }
 
         sphere.position.x += stepX;
