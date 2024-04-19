@@ -691,7 +691,7 @@ class App{
             contador++;
         }
 
-        if (contador >= 16){
+        if (contador == 16){
             if (sphereRTP1.position.x < -1){
                 sphereRTP1.scale.set(0, 0, 0);
             }else if (sphereRTP1.position.x < 1){
@@ -722,7 +722,7 @@ class App{
                 sphereRTP5.scale.set(1, 1, 1);
             }
 
-            if (sphereRTP1.position.x < 0 && contador == 16){
+            if (sphereRTP1.position.x < 0){
                 stepX = -0.005;   
             }
 
