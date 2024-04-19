@@ -176,8 +176,6 @@ class App{
 
         sphere = getSphere();
         sphere.position.set (-1, 0.3, 1);
-        sphere.rotateX (Math.PI/2);
-        sphere.rotateY (Math.PI/-2);
         sphere.name = "sphere";
         this.scene.add(sphere);
 
