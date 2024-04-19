@@ -658,13 +658,16 @@ class App{
                 
                 // Sincronizar Paquetes adicionales
                 sphereRTP1.position.set (1.1, 0.3, 1);
-                sphereRTP1.material.color = new THREE.Color("blue");
+                sphereRTP1.material.color.set(0xffffff);
+                //sphereRTP1.material.color = new THREE.Color("blue");
 
                 sphereRTP2.position.set (1.2, 0.3, 1);
-                sphereRTP2.material.color = new THREE.Color("blue");
+                //sphereRTP2.material.color = new THREE.Color("blue");
+                sphereRTP2.material.color.set(0xffffff);
 
                 sphereRTP3.position.set (1.3, 0.3, 1);
-                sphereRTP3.material.color = new THREE.Color("blue");
+                //sphereRTP3.material.color = new THREE.Color("blue");
+                sphereRTP1.material.color.set(0xffffff);
 
                 sphereRTP4.position.set (1.4, 0.3, 1);
                 sphereRTP4.material.color = new THREE.Color("blue");
