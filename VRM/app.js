@@ -650,30 +650,32 @@ class App{
                 
             } else if (contador == 15) {
                 sphere.position.set (1, 0.3, 1);
-                stepX = -0.005;
+                stepX = -0.004;
                 stepZ = 0;
                 resultado = ("RTP");
                 estado = ("RTP");
                 sphere.material.color = new THREE.Color("blue");
                 
                 // Sincronizar Paquetes adicionales
-                sphereRTP1.position.set (1.1, 0.3, 1);
-                sphereRTP1.material.color.set(0xffffff);
-                //sphereRTP1.material.color = new THREE.Color("blue");
+                sphereRTP1.position.set (1.2, 0.3, 1);
+                sphereRTP1.material.color = new THREE.Color("blue");
+                sphereRTP1.scale.set(0, 0, 0);
 
-                sphereRTP2.position.set (1.2, 0.3, 1);
-                //sphereRTP2.material.color = new THREE.Color("blue");
-                sphereRTP2.material.color.set(0xffffff);
+                sphereRTP2.position.set (1.4, 0.3, 1);
+                sphereRTP2.material.color = new THREE.Color("blue");
+                sphereRTP2.scale.set(0, 0, 0);
 
-                sphereRTP3.position.set (1.3, 0.3, 1);
-                //sphereRTP3.material.color = new THREE.Color("blue");
-                sphereRTP1.material.color.set(0xffffff);
+                sphereRTP3.position.set (1.6, 0.3, 1);
+                sphereRTP3.material.color = new THREE.Color("blue");
+                sphereRTP3.scale.set(0, 0, 0);
 
-                sphereRTP4.position.set (1.4, 0.3, 1);
+                sphereRTP4.position.set (1.8, 0.3, 1);
                 sphereRTP4.material.color = new THREE.Color("blue");
+                sphereRTP4.scale.set(0, 0, 0);
 
-                sphereRTP5.position.set (1.5, 0.3, 1);
+                sphereRTP5.position.set (2, 0.3, 1);
                 sphereRTP5.material.color = new THREE.Color("blue");
+                sphereRTP5.scale.set(0, 0, 0);
 
             }
             contador++;   
@@ -692,19 +694,34 @@ class App{
         if (contador >= 16){
             if (sphereRTP1.position.x < -1){
                 sphereRTP1.scale.set(0, 0, 0);
+            }else if (sphereRTP1.position.x < 1){
+                sphereRTP1.scale.set(1, 1, 1);
             }
+
             if (sphereRTP2.position.x < -1){
                 sphereRTP2.scale.set(0, 0, 0);
+            }else if (sphereRTP2.position.x < 1){
+                sphereRTP2.scale.set(1, 1, 1);
             }
+
             if (sphereRTP3.position.x < -1){
                 sphereRTP3.scale.set(0, 0, 0);
+            }else if (sphereRTP3.position.x < 1){
+                sphereRTP3.scale.set(1, 1, 1);
             }
+
             if (sphereRTP4.position.x < -1){
                 sphereRTP4.scale.set(0, 0, 0);
+            }else if (sphereRTP4.position.x < 1){
+                sphereRTP4.scale.set(1, 1, 1);
             }
+
             if (sphereRTP5.position.x < -1){
                 sphereRTP5.scale.set(0, 0, 0);
+            }else if (sphereRTP5.position.x < 1){
+                sphereRTP5.scale.set(1, 1, 1);
             }
+
             sphereRTP1.position.x += stepXRTP;
             sphereRTP2.position.x += stepXRTP;
             sphereRTP3.position.x += stepXRTP;
