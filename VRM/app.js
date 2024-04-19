@@ -176,28 +176,40 @@ class App{
 
         sphere = getSphere();
         sphere.position.set (-1, 0.3, 1);
+        sphere.rotateX (Math.PI/2);
+        sphere.rotateY (Math.PI/-2);
         sphere.name = "sphere";
         this.scene.add(sphere);
 
         // Paquetes RTP
         sphereRTP1 = getSphere();
         sphereRTP1.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+        sphereRTP1.rotateX (Math.PI/2);
+        sphereRTP1.rotateY (Math.PI/-2);
         sphereRTP1.position.set (20, 0.3, 1);
         this.scene.add(sphereRTP1);
         sphereRTP2 = getSphere();
         sphereRTP2.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+        sphereRTP2.rotateX (Math.PI/2);
+        sphereRTP2.rotateY (Math.PI/-2);
         sphereRTP2.position.set (20, 0.3, 1);
         this.scene.add(sphereRTP2);
         sphereRTP3 = getSphere();
         sphereRTP3.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+        sphereRTP3.rotateX (Math.PI/2);
+        sphereRTP3.rotateY (Math.PI/-2);
         sphereRTP3.position.set (20, 0.3, 1);
         this.scene.add(sphereRTP3);
         sphereRTP4 = getSphere();
         sphereRTP4.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+        sphereRTP4.rotateX (Math.PI/2);
+        sphereRTP4.rotateY (Math.PI/-2);
         sphereRTP4.position.set (20, 0.3, 1);
         this.scene.add(sphereRTP4);
         sphereRTP5 = getSphere();
         sphereRTP5.geometry = new THREE.SphereGeometry(0.075, 4.8, 3, 0, Math.PI*2, 0, Math.PI);
+        sphereRTP5.rotateX (Math.PI/2);
+        sphereRTP5.rotateY (Math.PI/-2);
         sphereRTP5.position.set (20, 0.3, 1);
         this.scene.add(sphereRTP5);
 
