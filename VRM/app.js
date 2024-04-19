@@ -722,7 +722,7 @@ class App{
                 sphereRTP5.scale.set(1, 1, 1);
             }
 
-            if (sphereRTP1.position.x < 0){
+            if (sphereRTP1.position.x < 0 && contador == 16){
                 stepX = -0.005;   
             }
 
