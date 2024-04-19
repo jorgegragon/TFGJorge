@@ -650,7 +650,7 @@ class App{
                 
             } else if (contador == 15) {
                 sphere.position.set (1, 0.3, 1);
-                stepX = -0.004;
+                stepX = 0;
                 stepZ = 0;
                 resultado = ("RTP");
                 estado = ("RTP");
@@ -720,6 +720,10 @@ class App{
                 sphereRTP5.scale.set(0, 0, 0);
             }else if (sphereRTP5.position.x < 1){
                 sphereRTP5.scale.set(1, 1, 1);
+            }
+
+            if (sphereRTP1.position.x < 0){
+                stepX = -0.005;   
             }
 
             sphereRTP1.position.x += stepXRTP;
