@@ -16,6 +16,9 @@ const pared = new THREE.TextureLoader().load( '../Imagenes/parametros/secuencia.
 const att_ua1= new THREE.TextureLoader().load( '../Imagenes/parametros/attua1.png' );
 const att_ua2 = new THREE.TextureLoader().load( '../Imagenes/parametros/attua2.png' );
 const att_proxy = new THREE.TextureLoader().load( '../Imagenes/parametros/attproxy.png' );
+const att_ua1_inf = new THREE.TextureLoader().load( '../Imagenes/parametros/att_ua1inf.png' );
+const att_ua2_inf = new THREE.TextureLoader().load( '../Imagenes/parametros/att_ua2inf.png' );
+const att_proxy_inf = new THREE.TextureLoader().load( '../Imagenes/parametros/att_proxyinf.png' );
 
 const register_ua1 = new THREE.TextureLoader().load( '../Imagenes/paquetes/Register1.png' );
 const register_ua2 = new THREE.TextureLoader().load( '../Imagenes/paquetes/Register2.png' );
@@ -365,11 +368,16 @@ class App{
                         if (intersect.object.material.color.getHex() === 0xff0000) {
                             intersect.object.material.color.set(0xffffff);
                             wall1.material.map = pared;
-                        } else {
+                        } else if (contador == 0) {
                             intersect.object.material.color.set(0xff0000);
                             box.material.color.set(0xffffff);
                             box2.material.color.set(0xffffff);
                             wall1.material.map = att_ua1;
+                        }else{
+                            intersect.object.material.color.set(0xff0000);
+                            box.material.color.set(0xffffff);
+                            box2.material.color.set(0xffffff);
+                            wall1.material.map = att_ua1_inf;
                         }
                         wallLogo.material.map = logoStart;
                         start = false;
@@ -378,11 +386,16 @@ class App{
                         if (intersect.object.material.color.getHex() === 0xff0000) {
                             intersect.object.material.color.set(0xffffff);
                             wall1.material.map = pared;
-                        } else {
+                        } else if (contador == 0) {
                             intersect.object.material.color.set(0xff0000);
                             box.material.color.set(0xffffff);
                             box1.material.color.set(0xffffff);
                             wall1.material.map = att_ua2;
+                        } else {
+                            intersect.object.material.color.set(0xff0000);
+                            box.material.color.set(0xffffff);
+                            box1.material.color.set(0xffffff);
+                            wall1.material.map = att_ua2_inf;
                         }
                         start = false;
                         wallLogo.material.map = logoStart;
@@ -391,11 +404,16 @@ class App{
                         if (intersect.object.material.color.getHex() === 0xff0000) {
                             intersect.object.material.color.set(0xffffff);
                             wall1.material.map = pared;
-                        } else {
+                        } else if (contador == 0) {
                             intersect.object.material.color.set(0xff0000);
                             box1.material.color.set(0xffffff);
                             box2.material.color.set(0xffffff);
                             wall1.material.map = att_proxy;
+                        } else {
+                            intersect.object.material.color.set(0xff0000);
+                            box1.material.color.set(0xffffff);
+                            box2.material.color.set(0xffffff);
+                            wall1.material.map = att_proxy_inf;
                         }
                         start = false;
                         wallLogo.material.map = logoStart;
