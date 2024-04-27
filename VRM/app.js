@@ -541,15 +541,15 @@ class App{
                 console.log(contador);
                 switch (contador) {
                     case 0:
+                        console.log("Entra 0");
                         resultado = ("401 Unauthorized");
                         estado = ("Unauthorized");
                         sphere.material.color = new THREE.Color("red");
                         break;
                     case 2:
-                        //resultado = ("200 OK");
-                        //estado = ("200 OK Register UA1");
-                        resultado = ("401 Unauthorized");
-                        estado = ("Unauthorized");
+                        console.log("Entra 200");
+                        resultado = ("200 OK");
+                        estado = ("200 OK Register UA1");
                         break;
                     case 10:
                         resultado = ("100 Trying");
