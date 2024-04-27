@@ -538,6 +538,7 @@ class App{
                 sphere.position.set (0, 0.3, -1);
                 stepX = -0.0125;
                 stepZ = 0.025;
+                console.log(contador);
                 switch (contador) {
                     case 0:
                         resultado = ("401 Unauthorized");
@@ -545,8 +546,10 @@ class App{
                         sphere.material.color = new THREE.Color("red");
                         break;
                     case 2:
-                        resultado = ("200 OK");
-                        estado = ("200 OK Register UA1");
+                        //resultado = ("200 OK");
+                        //estado = ("200 OK Register UA1");
+                        resultado = ("401 Unauthorized");
+                        estado = ("Unauthorized");
                         break;
                     case 10:
                         resultado = ("100 Trying");
